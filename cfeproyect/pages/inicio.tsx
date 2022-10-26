@@ -1,8 +1,11 @@
 import React from 'react'
+import AppShel from '../components/appshel'
 
 const Inicio = () => {
   return (
-    <div>Inicio</div>
+    <AppShel tituloPagina='Inicio'>
+      <div>hola</div>
+    </AppShel>
   )
 }
 
