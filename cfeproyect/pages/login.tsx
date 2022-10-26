@@ -54,11 +54,8 @@ const Login = () => {
         <Group position="center" mt="md" mb="xs">
         <br></br>
         <Button sx={(theme) => ({ backgroundColor: '#3F6D3F', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} type="submit" >
-        <Link href='/inicio'>Iniciar Sesion</Link>
-          
+        <Link href='/inicio'>Iniciar Sesion</Link>        
         </Button>
-        <p></p>
-        
         </Group>
         </Card>
       </Container>

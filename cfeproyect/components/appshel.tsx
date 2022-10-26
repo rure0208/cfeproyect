@@ -23,6 +23,7 @@ const AppShel = ({children, tituloPagina }) => {
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/'>Equipo Computo</Link></Button>
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/'>Mantenimiento</Link></Button>           
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),},})} radius="lg" size="md" compact ><Link href='/'>AF13</Link></Button>
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),},})} radius="lg" size="md" compact ><Link href='/'>Cerrar Sesion</Link></Button>
          </Stack>
     </Navbar>
     }
