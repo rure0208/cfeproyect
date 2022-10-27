@@ -1,7 +1,11 @@
 import React from 'react'
 import { useState } from 'react';
 import Link from 'next/link';
-import {AppShell, Navbar, Header, Footer, Stack,Button, Text, MediaQuery, Burger, useMantineTheme,Center, Image} from '@mantine/core';
+import {AiOutlineHome} from 'react-icons/ai'
+import {RiUserSettingsLine} from 'react-icons/ri'
+import {FaUsers,FaDesktop} from 'react-icons/fa'
+import {GoSignOut} from 'react-icons/go'
+import {AppShell, Navbar, Header, Footer, Stack,Button, Text, MediaQuery, Burger, useMantineTheme,Container, Image} from '@mantine/core';
 const AppShel = ({children, tituloPagina }) => {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
@@ -15,26 +19,30 @@ const AppShel = ({children, tituloPagina }) => {
     navbarOffsetBreakpoint="sm"
     asideOffsetBreakpoint="sm"
     navbar={ 
-    <Navbar  p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 300 }} sx={(theme) => ({ backgroundColor: '#A4E5A4' })}>
+    
+    <Navbar  
+    style={{ 
+      paddingTop: 30
+    }}
+    p="md" hiddenBreakpoint="sm" hidden={!opened} width={{ sm: 200, lg: 250 }} sx={(theme) => ({ backgroundColor: '#A4E5A4' })}>
       
       <Stack sx={(theme) => ({ backgroundColor: '#A4E5A4' })}>
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/'>Inicio</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/'>Personal</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/equipo'>Equipo Computo</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} radius="lg" size="md" compact ><Link href='/mantenimiento'>Mantenimiento</Link></Button>           
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),},})} radius="lg" size="md" compact ><Link href='/af13'>AF13</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),},})} radius="lg" size="md" compact ><Link href='/'>Cerrar Sesion</Link></Button>
-         </Stack>
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<AiOutlineHome></AiOutlineHome>}><Link href='/inicio'>Inicio</Link></Button>
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaUsers></FaUsers>}><Link href='/personal'>Personal</Link></Button>
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaDesktop></FaDesktop>}><Link href='/equipo'>Equipo Computo</Link></Button>
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<RiUserSettingsLine></RiUserSettingsLine>}><Link href='/mantenimiento'>AF13</Link></Button>           
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<GoSignOut></GoSignOut>}><Link href='/'>Cerrar Sesion</Link></Button>
+      </Stack>
     </Navbar>
     }
 
     footer={
-      <Footer height={40} p="sm" >
+      <Footer height={40} p="sm" sx={(theme) => ({ backgroundColor: '#A4E5A4' })}>
        <Text color={'black'}>Derechos Reservados @cfe.mx</Text>
       </Footer>
     }
     header={
-      <Header height={60} p="md" >
+      <Header height={60} p="md" sx={(theme) => ({ backgroundColor: '#A4E5A4' })} >
         <div style={{ display: 'flex', alignItems: 'center', height: '100%'}}>
           <MediaQuery largerThan="sm" styles={{ display: 'none' }}>
             <Burger
