@@ -1,6 +1,8 @@
 import React from 'react';
 import { useForm } from '@mantine/form';
 import Link from 'next/link';
+import {BiUser, BiLock} from 'react-icons/bi'
+import {CgLogIn} from 'react-icons/cg'
 import { Button, TextInput, PasswordInput, Container, AppShell ,Card,Group,Text,Image,Center, Space} from '@mantine/core'
 
 const Login = () => {
@@ -58,6 +60,7 @@ const Login = () => {
             mt="sm" 
             label="RPE" 
             placeholder="RPE" 
+            icon={<BiUser></BiUser>}
             {...form.getInputProps('email')}
         />
         <PasswordInput
@@ -68,10 +71,11 @@ const Login = () => {
             }}
             placeholder="Contraseña"
             label="Contraseña"
+            icon={<BiLock></BiLock>}
         />
         <Group position="center" mt="md" mb="xs">
         <br></br>
-        <Button sx={(theme) => ({ backgroundColor: '#3F6D3F', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} type="submit" >
+        <Button leftIcon={<CgLogIn></CgLogIn>} sx={(theme) => ({ backgroundColor: '#3F6D3F', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} type="submit" >
         <Link href='/inicio'>Iniciar Sesion</Link>        
         </Button>
         </Group>
