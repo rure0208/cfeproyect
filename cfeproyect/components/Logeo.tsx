@@ -32,17 +32,14 @@ const Logeo = () => {
       <Card.Section>
         <Center>
           {/*eslint-disable-next-line jsx-a11y/alt-text*/}
-          <Images/>
-          
+          <Images/>   
         </Center>
       </Card.Section>
       <br></br>
-      <Text weight={700} align="center" style={{ fontFamily: 'Greycliff CF, sans-serif' }} >Iniciar Sesion</Text>
+      <Text weight={700} align="center" style={{ fontFamily: 'Greycliff CF, sans-serif' }} >Iniciar Sesión</Text>
       <TextInputs/>
-      
       <Password/>
-      <Groups/>
-      
+      <Groups/> 
     </Card>
   </Container>
   </form>
