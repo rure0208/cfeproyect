@@ -16,7 +16,7 @@ const AppShel = ({ children, tituloPagina }) => {
       navbarOffsetBreakpoint="sm"
       asideOffsetBreakpoint="sm"
       navbar={
-        <NavBar />
+        <NavBar/>
       }
       footer={
         <Footers />

@@ -1,12 +1,15 @@
 
 import React from 'react'
 import AppShel from '../components/appshel'
+import Layout from '../components/Layout'
 
 const Personal = () => {
   return (
-<AppShel tituloPagina='Personal'>
-      <div>desde personal</div>
-    </AppShel>
+    <Layout tituloPestaña='Personal'>
+      <AppShel tituloPagina='Personal'>
+        <div>desde personal</div>
+      </AppShel>
+    </Layout>
   )
 }
 

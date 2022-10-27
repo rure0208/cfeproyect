@@ -1,7 +1,7 @@
 import React from 'react'
-import StackButton from './stackButton';
 import { useState } from 'react';
 import { Navbar, useMantineTheme } from '@mantine/core';
+import StackButton from './stackButton';
 const NavBar = () => {
     const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);
