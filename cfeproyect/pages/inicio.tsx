@@ -1,6 +1,6 @@
 
 import React from 'react'
-import AppShel from '../components/appshel'
+import AppShel from '../components/Appshel'
 import Layout from '../components/Layout'
 import Tabla from '../components/Tabla'
 
