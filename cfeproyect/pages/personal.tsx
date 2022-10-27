@@ -5,7 +5,7 @@ import AppShel from '../components/appshel'
 const Personal = () => {
   return (
 <AppShel tituloPagina='Personal'>
-      <div>hola</div>
+      <div>desde personal</div>
     </AppShel>
   )
 }
