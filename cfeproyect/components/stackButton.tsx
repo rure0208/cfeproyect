@@ -13,7 +13,8 @@ const StackButton = () => {
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<AiOutlineHome></AiOutlineHome>}><Link href='/inicio'>Inicio</Link></Button>
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaUsers></FaUsers>}><Link href='/personal'>Personal</Link></Button>
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaDesktop></FaDesktop>}><Link href='/equipo'>Equipo Computo</Link></Button>
-           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<RiUserSettingsLine></RiUserSettingsLine>}><Link href='/mantenimiento'>AF13</Link></Button>           
+                      <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaDesktop></FaDesktop>}><Link href='/mantenimiento'>Mantenimiento</Link></Button>
+           <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<RiUserSettingsLine></RiUserSettingsLine>}><Link href='/af13'>AF13</Link></Button>           
            <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<GoSignOut></GoSignOut>}><Link href='/'>Cerrar Sesion</Link></Button>
       </Stack>
   )

@@ -4,8 +4,8 @@ import Layout from '../components/Layout'
 
 const Mantenimiento = () => {
   return (
-    <Layout tituloPestaña='AF13'>
-    <AppShel tituloPagina='AF13'>
+    <Layout tituloPestaña='Mantenimiento'>
+    <AppShel tituloPagina='Mantenimiento'>
       <div>desde Mantenimiento</div>
     </AppShel>
     </Layout>
