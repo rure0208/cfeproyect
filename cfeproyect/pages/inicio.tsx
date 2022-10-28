@@ -1,8 +1,7 @@
-
-import React from 'react'
-import AppShel from '../components/Appshel'
-import Layout from '../components/Layout'
-import Tabla from '../components/Tabla'
+import React from 'react';
+import AppShel from '../components/Appshel';
+import Layout from '../components/Layout';
+import Tabla from '../components/Tabla';
 
 const Inicio = () => {
   return (

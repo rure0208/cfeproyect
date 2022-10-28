@@ -1,9 +1,10 @@
 import React from 'react';
-import { Table, Text, NumberInput} from '@mantine/core';
+import { Table, Text, Card} from '@mantine/core';
 
 const Tabla = () => {
   return (
     <div>
+      <Card shadow="sm" p="lg" radius="md" withBorder>
           <Table>
       <thead>
         <tr>
@@ -34,6 +35,7 @@ const Tabla = () => {
         </tr>
       </tbody>
     </Table>
+    </Card>
     </div>
   )
 }
