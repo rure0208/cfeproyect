@@ -1,0 +1,32 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maquinas",
+  "info": {
+    "singularName": "maquina",
+    "pluralName": "maquinas",
+    "displayName": "maquina"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "noInventario": {
+      "type": "string"
+    },
+    "modelo": {
+      "type": "string"
+    },
+    "centroCoste": {
+      "type": "string"
+    },
+    "noSerie": {
+      "type": "string"
+    },
+    "personal": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::personal.personal"
+    }
+  }
+}

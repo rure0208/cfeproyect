@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mantenimientos",
+  "info": {
+    "singularName": "mantenimiento",
+    "pluralName": "mantenimientos",
+    "displayName": "mantenimiento",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "maquina": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::maquina.maquina"
+    },
+    "fecha": {
+      "type": "date"
+    }
+  }
+}
