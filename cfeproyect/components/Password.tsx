@@ -9,7 +9,7 @@ const Password = () => {
                 paddingRight: 20,
                 width: 300
             }}
-            placeholder="Contraseña"
+           /** placeholder="Contraseña"*/
             label="Contraseña"
             icon={<BiLock></BiLock>}
         />
