@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table, Text, Card } from '@mantine/core';
 
 const Tabla = () => {
@@ -20,20 +20,15 @@ const Tabla = () => {
           <tbody>
             {/* {rows} */}
             <tr>
+              
+           <td> </td> 
               <td>Efrain04</td>
               <td><Text>HP</Text></td>
               <td><Text>Cableado</Text></td>
               <td><Text>En curso</Text></td>
             </tr>
 
-            <tr>
-              <td>Karen09</td>
-              <td><Text>Dell</Text></td>
-              <td><Text>Recepción</Text></td>
-              <td><Text>En curso</Text></td>
-
-
-            </tr>
+          
           </tbody>
         </Table>
       </Card>
