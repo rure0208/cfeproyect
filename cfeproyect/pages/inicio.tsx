@@ -1,9 +1,9 @@
 import React from 'react';
-import AppShel from '../components/Appshel';
+import AppShel from '../components/appshel';
 import Layout from '../components/Layout';
 import Tabla from '../components/Tabla';
 
-const Inicio = () => {
+const Inicio = () => {  
   return (
     <Layout tituloPestaña='Inicio'>
     <AppShel tituloPagina='Inicio'>

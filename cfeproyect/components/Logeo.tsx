@@ -1,22 +1,16 @@
-import React from 'react'
-import { Container, Card, Text, Center} from '@mantine/core'
-import { useForm } from '@mantine/form';
-import Password from './Password';
-import Groups from './Groups';
+import React , { useState } from 'react'
+import { Container, Card, Text, Center,TextInput,PasswordInput,Group,Button} from '@mantine/core'
+import Link from 'next/link'
+import { BiUser,BiLock } from 'react-icons/bi'
+import { CgLogIn } from 'react-icons/cg'
+
+
 import Images from './Image';
-import TextInputs from './TextInput';
+
+import { useRouter } from 'next/router'
 const Logeo = () => {
-    const form = useForm({
 
-        initialValues: { email: '' },
-        validate: {
-          email: (value) => (/^\S+@\S+$/.test(value) ? null : 'RPE no valido'),
-        },
-    
-      });
-
-  return (
-    <form onSubmit={form.onSubmit(console.log)}>
+  return ( 
     <Container size={400} px={0} >
     <Card shadow="sm" p="lg" radius="md" withBorder
       style={{
@@ -37,12 +31,36 @@ const Logeo = () => {
       </Card.Section>
       <br></br>
       <Text weight={700} align="center" style={{ fontFamily: 'Greycliff CF, sans-serif' }} >Iniciar Sesión</Text>
-      <TextInputs/>
-      <Password/>
-      <Groups/> 
+      <TextInput
+      style={{
+        paddingLeft: 30,
+        paddingRight: 20,
+        width: 300
+      }}
+      mt="sm"
+      label="Usuario"
+      /*placeholder="RPE"*/
+      icon={<BiUser></BiUser>}
+     
+    />
+    <PasswordInput
+            style={{
+                paddingLeft: 30,
+                paddingRight: 20,
+                width: 300
+            }}
+           /** placeholder="Contraseña"*/
+            label="Contraseña"
+            icon={<BiLock></BiLock>}
+        />
+    <Group position="center" mt="md" mb="xs">
+        <br></br>
+        <Button leftIcon={<CgLogIn />} sx={(theme) => ({ backgroundColor: '#3F6D3F', '&:hover': { backgroundColor: theme.fn.darken('#A1C298', 0.05), }, })} type="submit" >
+         <Link href="/inicio">Iniciar A¿Sesion</Link>
+        </Button>
+      </Group>
     </Card>
   </Container>
-  </form>
   )
 }
 
