@@ -3,7 +3,7 @@ import AppShel from '../components/appshel';
 import Layout from '../components/Layout';
 import Tabla from '../components/Tabla';
 
-const Inicio = (resultado) => {  
+const Inicio = () => {  
 
   return (
     <Layout tituloPestaña='Inicio'>
@@ -17,17 +17,4 @@ const Inicio = (resultado) => {
   )
 }
 
-export async function getStaticProps(){
-  const url='http://localhost:1337/api/maquinas'
-  const respuesta = await fetch(url)
-  const resultado = await respuesta.json()
-  console.log(resultado.data)
-  {
-  return{
-    props:{
-      resultado
-    }
-  }
-  }
-}
 export default Inicio
