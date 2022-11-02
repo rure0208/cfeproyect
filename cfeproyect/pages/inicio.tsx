@@ -1,18 +1,19 @@
 import React from 'react';
-import AppShel from '../components/appshel';
+import AppShel from '../components/Appshel';
 import Layout from '../components/Layout';
-import Tabla from '../components/Tabla';
+import TablaEquipo from '../components/TablaEquipo';
 
-const Inicio = () => {  
+
+const Inicio = () => {
 
   return (
     <Layout tituloPestaña='Inicio'>
-    <AppShel tituloPagina='Inicio'>
-      <div>
-      <Tabla/>
-     
-      </div>
-    </AppShel>
+      <AppShel tituloPagina='Mantenimiento del día'>
+        <div>
+
+          <TablaEquipo />
+        </div>
+      </AppShel>
     </Layout>
   )
 }

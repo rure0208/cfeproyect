@@ -23,6 +23,18 @@
     },
     "noSerie": {
       "type": "string"
+    },
+    "rpe": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "api::personal.personal",
+      "inversedBy": "maquinas"
+    },
+    "mantenimientos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mantenimiento.mantenimiento",
+      "mappedBy": "maquinas"
     }
   }
 }

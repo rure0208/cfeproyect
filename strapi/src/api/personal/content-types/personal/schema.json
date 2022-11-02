@@ -22,7 +22,20 @@
       "type": "string"
     },
     "rpe": {
-      "type": "string"
+      "type": "uid",
+      "required": true
+    },
+    "maquinas": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::maquina.maquina",
+      "mappedBy": "rpe"
+    },
+    "mantenimientos": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::mantenimiento.mantenimiento",
+      "inversedBy": "personals"
     }
   }
 }

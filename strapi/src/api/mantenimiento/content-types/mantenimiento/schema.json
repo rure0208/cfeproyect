@@ -12,13 +12,20 @@
   },
   "pluginOptions": {},
   "attributes": {
-    "maquina": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "api::maquina.maquina"
-    },
     "fecha": {
       "type": "date"
+    },
+    "maquinas": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::maquina.maquina",
+      "inversedBy": "mantenimientos"
+    },
+    "personals": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::personal.personal",
+      "inversedBy": "mantenimientos"
     }
   }
 }
