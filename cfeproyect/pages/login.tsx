@@ -9,8 +9,6 @@ const Login = () => {
 
   return (
     <Layout tituloPestaña='Iniciar sesión'>
-    
-
         <AppShell
           sx={(theme) => ({ backgroundColor: '#3F6D3F' })}>
         <Logeo/>

@@ -26,33 +26,33 @@ async function createPost() {
 
   return (
 <Container>
-<Grid>
-      <Grid.Col span={4}>  
-      <TextInput
-      label="RPE"
-      withAsterisk
-    />
-     <TextInput
-    label="Puesto"
-    withAsterisk
-  />
-  </Grid.Col>
-      <Grid.Col span={4}>
-      <TextInput
-  label="Nombre"
-  withAsterisk
-/>
-<TextInput
-  label="Area"
-  withAsterisk
-/>
-      </Grid.Col>
-    <Grid.Col span={4}>
-    <Space h="lg" />
-    <Space h="lg" />
-    <Space h="lg" />
-      <Button onClick={createPost}>agregar</Button>
-    </Grid.Col>
+    <Grid>
+        <Grid.Col span={4}>  
+        <TextInput
+        label="RPE"
+        withAsterisk
+        />
+        <TextInput
+        label="Puesto"
+        withAsterisk
+        />
+        </Grid.Col>
+        <Grid.Col span={4}>
+        <TextInput
+        label="Nombre"
+        withAsterisk
+        />
+        <TextInput
+        label="Area"
+        withAsterisk
+        />
+        </Grid.Col>
+        <Grid.Col span={4}>
+        <Space h="lg" />
+        <Space h="lg" />
+        <Space h="lg" />
+          <Button onClick={createPost}>agregar</Button>
+        </Grid.Col>
     </Grid>
 </Container>
   )
