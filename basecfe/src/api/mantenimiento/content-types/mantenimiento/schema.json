@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "mantenimientos",
+  "info": {
+    "singularName": "mantenimiento",
+    "pluralName": "mantenimientos",
+    "displayName": "mantenimiento"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "noInventario": {
+      "type": "string"
+    },
+    "centroCoste": {
+      "type": "string"
+    },
+    "noSerie": {
+      "type": "string"
+    },
+    "rpe": {
+      "type": "string"
+    },
+    "fecha": {
+      "type": "date"
+    }
+  }
+}

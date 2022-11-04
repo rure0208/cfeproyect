@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "maquinas",
+  "info": {
+    "singularName": "maquina",
+    "pluralName": "maquinas",
+    "displayName": "maquina"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "noInventario": {
+      "type": "string"
+    },
+    "modelo": {
+      "type": "string"
+    },
+    "centroCoste": {
+      "type": "string"
+    },
+    "rpe": {
+      "type": "string"
+    },
+    "n": {
+      "type": "string"
+    }
+  }
+}

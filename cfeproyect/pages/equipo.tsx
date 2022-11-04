@@ -1,6 +1,6 @@
 import React from 'react'
 import {Card} from '@mantine/core';
-import AppShel from '../components/Appshel'
+import AppShel from '../components/appshel'
 import Layout from '../components/Layout'
 import TablaEquipo from '../components/TablaEquipo';
 

@@ -1,0 +1,27 @@
+{
+  "kind": "collectionType",
+  "collectionName": "personals",
+  "info": {
+    "singularName": "personal",
+    "pluralName": "personals",
+    "displayName": "personal"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "rpe": {
+      "type": "string"
+    },
+    "nombre": {
+      "type": "string"
+    },
+    "puesto": {
+      "type": "string"
+    },
+    "area": {
+      "type": "string"
+    }
+  }
+}
