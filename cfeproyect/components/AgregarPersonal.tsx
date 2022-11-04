@@ -4,20 +4,21 @@ import { useState, useEffect } from 'react'
 import api from '../services/api';
 import axios from 'axios';
 
-const baseURL="http://localhost:1337/api/personals"
+const baseURL="http://localhost:1337/api/personals";
 const AgregarPersonal = () => {
-    const [post, setPost] = useState([]);
-
    
 async function createPost() {
-    const resp = await axios.post(baseURL,
-     { rpe:"200",
-      nombre:"200",
-      puesto:"200",
-      area:"200",
-    }).then((response)=>{
-      console.log(response)
-        setPost(response.data);
+  await axios.post(baseURL,{ 
+    rpe:" 9b802",
+  nombre:"Efrain Ruiz",
+  puesto:"Estudiante",
+  area:"TI"
+})   
+    .then(function (response) {
+      console.log(response);
+    })
+    .catch(function (error) {
+      console.log(error);
     });
 }
 
