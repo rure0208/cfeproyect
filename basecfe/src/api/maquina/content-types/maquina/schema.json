@@ -4,7 +4,8 @@
   "info": {
     "singularName": "maquina",
     "pluralName": "maquinas",
-    "displayName": "maquina"
+    "displayName": "maquina",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -23,7 +24,7 @@
     "rpe": {
       "type": "string"
     },
-    "n": {
+    "noSerie": {
       "type": "string"
     }
   }

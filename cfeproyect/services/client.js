@@ -8,5 +8,8 @@ export default class Client {
     static async GET (url) {
         return await (await axios.get(this.BASE_URL + url)).data;
     }
+     static async POST (url) {
+        return await (await axios.post(this.BASE_URL + url)).data;
+    }
 
 }
