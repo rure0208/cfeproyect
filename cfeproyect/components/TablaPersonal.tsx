@@ -90,7 +90,9 @@ const TablaPersonal = () => {
                          <td>
                     {data.map(d => {
                                 return (
-                                    <Button key={d.id} onClick={() => deletePost(d.id)}>Delete</Button> 
+                                   <Text key={d.id}>
+                                     <Button size="xs" onClick={(id) => deletePost(d.id)}>Delete</Button> 
+                                   </Text>
                                     )}
                             )
                         }        
