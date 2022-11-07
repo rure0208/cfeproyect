@@ -1,5 +1,5 @@
-import React from 'react'
-import AppShel from '../components/appshel'
+import React from 'react';
+import AppShel from '../components/appshel';
 import { Card, Space } from '@mantine/core';
 import Layout from '../components/Layout'
 import TablaMantenimiento from '../components/TablaMantenimiento';
@@ -13,7 +13,9 @@ const Mantenimiento = () => {
           <Card shadow="sm" p="lg" radius="md" withBorder>
             <AgregarMantenimiento/>
             <Space h="lg" />
-            <Space h="lg" />
+          </Card>
+          <Card>
+          <Space h="lg" />
             <TablaMantenimiento/>
           </Card>
         </div>

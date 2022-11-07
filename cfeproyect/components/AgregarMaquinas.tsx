@@ -31,7 +31,7 @@ const AgregarMaquinas = () => {
             <Space h="lg" />
             <Space h="lg" />
             <Space h="lg" />
-            <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': {backgroundColor: theme.fn.darken('#D9D9D9', 0.05),}, })} size="md" compact leftIcon={<FcPlus></FcPlus>}></Button>
+            <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': {backgroundColor: theme.fn.darken('#D9D9D9', 0.05),}, })} size="md" compact leftIcon={<FcPlus></FcPlus>} ></Button>
             </Grid.Col>
         </Grid>
     </Container>
