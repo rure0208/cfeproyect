@@ -12,9 +12,6 @@ const api = {
     listaDeMantenimiento: async () => {
         return await client.GET('/api/mantenimientos');
     },
-    agregarDePersonal: async () => {
-        return await client.POST('/api/personals');
-    },
 }
 
 export default api;
