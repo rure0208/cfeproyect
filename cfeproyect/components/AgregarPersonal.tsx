@@ -11,6 +11,7 @@ const AgregarPersonal = () => {
   const [area, setarea] = useState('');
   const baseURL="http://localhost:1337/api/personals";   
 async function createPost() {
+  location.reload();
   await axios.post(baseURL,{data:{ 
     rpe:rpe,
   nombre:nombre,
