@@ -9,7 +9,7 @@ const AgregarPersonal = () => {
    
 async function createPost() {
   await axios.post(baseURL,{ 
-    rpe:" 9b802",
+    rpe:" temporal",
   nombre:"Efrain Ruiz",
   puesto:"Estudiante",
   area:"TI"
