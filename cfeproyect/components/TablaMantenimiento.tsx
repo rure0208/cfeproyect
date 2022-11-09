@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Text, Button } from '@mantine/core';
+import { Table, Text, ActionIcon } from '@mantine/core';
 import axios from 'axios';
 import api from '../services/api';
+import { GoTrashcan } from 'react-icons/go'
 
 const TablaMantenimiento = () => {
   const [data, setData] = useState([]);
@@ -103,9 +104,9 @@ const TablaMantenimiento = () => {
           <td>
             {data.map(d => {
               return (
-                <Text key={d.id}>
-                  <Button size="xs" onClick={(id) => deletePost(d.id)}>Delete</Button>
-                </Text>
+                <ActionIcon key={d.id}>
+                  <GoTrashcan onClick={(id) => deletePost(d.id)}/>
+                </ActionIcon>
               )
             }
             )

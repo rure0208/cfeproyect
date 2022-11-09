@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Text } from '@mantine/core';
+import { Table, Text,ActionIcon } from '@mantine/core';
 import api from '../services/api';
+import axios from 'axios';
+import { GoTrashcan } from 'react-icons/go'
 
 const TablaEquipo = () => {
   const [data, setData] = useState([]);
@@ -15,6 +17,19 @@ const TablaEquipo = () => {
 
     const list1 = await api.listaDePersonal();
     setData1(list1.data1);
+  }
+
+  async function deletePost(id){
+    const baseURL="http://localhost:1337/api/personals/";  
+      console.log(id);
+      axios.delete(baseURL+id)  
+        .then(function (response) {
+          console.log(response);
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+      location.reload();
   }
 
 
@@ -90,6 +105,18 @@ const TablaEquipo = () => {
                   </Text>
                 )
               })
+            }
+          </td>
+
+          <td>
+            {data.map(d => {
+              return (
+                <ActionIcon key={d.id}>
+                  <GoTrashcan onClick={(id) => deletePost(d.id)}/>
+                </ActionIcon>
+              )
+            }
+            )
             }
           </td>
 
