@@ -3,6 +3,7 @@ import api from '../services/api';
 import { useState, useEffect } from 'react'
 import { Table, Text,Button,ScrollArea,TextInput,ActionIcon} from '@mantine/core';
 import { GoTrashcan } from 'react-icons/go'
+import {BiSearch} from 'react-icons/bi'
 import axios from 'axios';
 
 const TablaPersonal = () => {
@@ -32,9 +33,15 @@ const TablaPersonal = () => {
     return (
         <ScrollArea>
             <TextInput
-            placeholder="Search by any field"
+            style={{ 
+              width: 200,
+              marginTop: 4,
+              marginLeft: 5
+              
+          }}
+            placeholder="Buscar"
             mb="sm"
-           
+            icon={<BiSearch></BiSearch>}
         />
         <Table>
             <thead>

@@ -4,9 +4,7 @@ import Login from './login';
 const Home = () => {
   return (
     <div>
-      
-  <Login></Login>
-
+      <Login></Login>
     </div>
   )
 }

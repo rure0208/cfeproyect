@@ -1,25 +1,51 @@
-import { Card,Container } from '@mantine/core';
+import { Card,Container, createStyles, Space,Text } from '@mantine/core';
 import React from 'react';
 import AgregarPersonal from '../components/AgregarPersonal';
 import AppShel from '../components/appshel';
 import Layout from '../components/Layout';
 import TablaPersonal from '../components/TablaPersonal';
+import { AiOutlineUserAdd } from 'react-icons/ai'
 
+// const useStyles = createStyles(() => ({
+//   container: {
+//       margin: 0,
+//       padding: 0,
+//       width: 1033,
+//       height: 800,
+
+//       backgroundColor: '#758E75'
+//   },
+
+// }));
 
 const Personal = () => {
-
+  // const { classes } = useStyles();
   return (
-  
     <Layout tituloPestaña='Personal'>
       <AppShel tituloPagina='Personal'>
-        <div>
-          <Container>
+          <Container size={700} px={0} >
+            <Card style={{ 
+                background: '#758E75',
+                // height: 700,
+                width: 700,
+                color: 'white' 
+            }}>
+            <Text><AiOutlineUserAdd/>   Agregar Personal</Text>
+            <hr/>
             <AgregarPersonal />
-            <Card>
+            
+            <Space h="lg" />
+            <Card.Section style={{ 
+                background: '#D9D9D9',
+                // height: 700,
+                width: 600, 
+                marginLeft: 40,
+            }}>
               <TablaPersonal />
+            </Card.Section>
             </Card>
           </Container>
-        </div>
+
       </AppShel>
     </Layout>
   )

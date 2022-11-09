@@ -10,7 +10,6 @@ const Inicio = () => {
     <Layout tituloPestaña='Inicio'>
       <AppShel tituloPagina='Mantenimiento del día'>
         <div>
-
           <TablaEquipo />
         </div>
       </AppShel>
