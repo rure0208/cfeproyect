@@ -19,6 +19,7 @@ const TablaEquipo = () => {
 
 
   return (
+    
     <Table>
       <thead>
         <tr>

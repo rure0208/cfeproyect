@@ -1,8 +1,8 @@
 import React from 'react'
 import { AppShell, Text } from '@mantine/core';
-import Footers from './Footer';
-import Headers from './Headers';
-import NavBar from './Navbar';
+import Footers from './footer';
+import Headers from './headers';
+import NavBar from './navbar';
 
 const AppShel = ({ children, tituloPagina }) => {
 
@@ -22,6 +22,7 @@ const AppShel = ({ children, tituloPagina }) => {
         <Footers />
       }
       header={
+        
         <Headers />
       }
     >
