@@ -16,17 +16,16 @@ const TablaPersonal = () => {
     }
 
     async function deletePost(id){
-        const baseURL="http://localhost:1337/api/personals";  
-       //location.reload();
+        const baseURL="http://localhost:1337/api/personals/";  
        console.log(id);
-    axios.delete(baseURL,id)  
+      axios.delete(baseURL+id)  
           .then(function (response) {
             console.log(response);
           })
           .catch(function (error) {
             console.log(error);
           });
-        
+        location.reload();
       }
       
     return (
