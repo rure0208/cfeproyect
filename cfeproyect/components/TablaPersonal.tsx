@@ -19,7 +19,7 @@ const TablaPersonal = () => {
         const baseURL="http://localhost:1337/api/personals";  
        //location.reload();
        console.log(id);
-    axios.delete(baseURL,id)  
+    axios.delete(baseURL,{data:{id}})  
           .then(function (response) {
             console.log(response);
           })
