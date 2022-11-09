@@ -1,7 +1,7 @@
 import React from 'react'
 import api from '../services/api';
 import { useState, useEffect } from 'react'
-import { Table, Text,Button,ScrollArea,TextInput,ActionIcon } from '@mantine/core';
+import { Table, Text,Button,ScrollArea,TextInput,ActionIcon} from '@mantine/core';
 import { GoTrashcan } from 'react-icons/go'
 import axios from 'axios';
 
@@ -96,8 +96,8 @@ const TablaPersonal = () => {
                          <td>
                     {data.map(d => {
                                 return (
-                                        <ActionIcon>
-                                            <GoTrashcan/>
+                                        <ActionIcon key={d.id}>
+                                            <GoTrashcan onClick={(id) => deletePost(d.id)}/>
                                         </ActionIcon>
                                 //    <Text key={d.id}>
                                 //      <Button leftIcon={<GoTrashcan/>} size="xs" onClick={(id) => deletePost(d.id)}></Button> 
