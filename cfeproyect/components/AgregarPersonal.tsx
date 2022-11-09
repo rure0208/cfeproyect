@@ -24,44 +24,35 @@ async function createPost() {
     });
     location.reload();
 }
-
-
-
   return (
-<Container>
-<Grid>
-      <Grid.Col span={4}>  
-      <TextInput
-      label="RPE"
-      withAsterisk
-      value={rpe} onChange={(event) => setrpe(event.currentTarget.value)}
-    />
-     <TextInput
-    label="Puesto"
-    withAsterisk
-    value={puesto} onChange={(event) => setpuesto(event.currentTarget.value)}
-  />
-  </Grid.Col>
-      <Grid.Col span={4}>
-      <TextInput
-  label="Nombre"
-  withAsterisk
-  value={nombre} onChange={(event) => setnombre(event.currentTarget.value)}
-/>
-<TextInput
-  label="Area"
-  withAsterisk
-  value={area} onChange={(event) => setarea(event.currentTarget.value)}
-/>
-      </Grid.Col>
-    <Grid.Col span={4}>
-    <Space h="lg" />
-    <Space h="lg" />
-    <Space h="lg" />
-      <Button onClick={createPost}>agregar</Button>
-    </Grid.Col>
-    </Grid>
-</Container>
+      <Grid>
+        <Grid.Col span={4}>  
+          <TextInput
+          label="RPE"
+          value={rpe} onChange={(event) => setrpe(event.currentTarget.value)}
+          />
+          <TextInput
+          label="Puesto"
+          value={puesto} onChange={(event) => setpuesto(event.currentTarget.value)}
+          />
+        </Grid.Col>
+        <Grid.Col span={4}>
+          <TextInput
+          label="Nombre"
+          value={nombre} onChange={(event) => setnombre(event.currentTarget.value)}
+          />
+          <TextInput
+            label="Area"  
+            value={area} onChange={(event) => setarea(event.currentTarget.value)}
+          />
+        </Grid.Col>
+          <Grid.Col span={4}>
+          <Space h="lg" />
+          <Space h="lg" />
+          <Space h="lg" />
+            <Button onClick={createPost}>agregar</Button>
+          </Grid.Col>
+        </Grid>
   )
 }
 

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Card, Space} from '@mantine/core';
+import {Card, Container, Space} from '@mantine/core';
 import AppShel from '../components/appshel';
 import Layout from '../components/Layout'
 import TablaEquipo from '../components/TablaEquipo';
@@ -13,14 +13,14 @@ const Equipo = () => {
     <Layout tituloPestaña='Maquinas'>
       <AppShel tituloPagina='Maquinas'>
       <div>
-      <Card shadow="sm" p="lg" radius="md" withBorder sx={(theme) => ({ backgroundColor: '#758E75' })}>
-        <AgregarMaquinas/>
-        <Space h="lg" />
-      </Card>
-      <Card>
-      <Space h="lg" />
-        <TablaEquipo />
-      </Card>
+        <Container>
+          <AgregarMaquinas/>
+          <Space h="lg" />
+          <Card>  
+          <Space h="lg" />
+            <TablaEquipo />
+          </Card>
+        </Container>
       </div>
       </AppShel>
     </Layout>

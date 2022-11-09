@@ -1,4 +1,4 @@
-import { Card } from '@mantine/core';
+import { Card,Container } from '@mantine/core';
 import React from 'react';
 import AgregarPersonal from '../components/AgregarPersonal';
 import AppShel from '../components/appshel';
@@ -9,16 +9,16 @@ import TablaPersonal from '../components/TablaPersonal';
 const Personal = () => {
 
   return (
+  
     <Layout tituloPestaña='Personal'>
       <AppShel tituloPagina='Personal'>
         <div>
-          <Card shadow="sm" p="lg" radius="md" withBorder >
+          <Container>
             <AgregarPersonal />
-
-          </Card>
-          <Card>
-            <TablaPersonal />
-          </Card>
+            <Card>
+              <TablaPersonal />
+            </Card>
+          </Container>
         </div>
       </AppShel>
     </Layout>

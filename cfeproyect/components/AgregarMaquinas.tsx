@@ -4,7 +4,6 @@ import {FcPlus} from 'react-icons/fc'
 
 const AgregarMaquinas = () => {
   return (
-    <Container>
         <Grid>
             <Grid.Col span={4}>  
             <TextInput
@@ -34,7 +33,7 @@ const AgregarMaquinas = () => {
             <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': {backgroundColor: theme.fn.darken('#D9D9D9', 0.05),}, })} size="md" compact leftIcon={<FcPlus></FcPlus>} ></Button>
             </Grid.Col>
         </Grid>
-    </Container>
+
   )
 }
 
