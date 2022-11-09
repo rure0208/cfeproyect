@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Text } from '@mantine/core';
+import { Table, Text, Button } from '@mantine/core';
+import axios from 'axios';
 import api from '../services/api';
 
 const TablaMantenimiento = () => {
@@ -12,17 +13,28 @@ const TablaMantenimiento = () => {
     const list = await api.listaDeMantenimiento();
     setData(list.data);
   }
-
+  async function deletePost(id) {
+    const baseURL = "http://localhost:1337/api/mantenimientos/";
+    console.log(id);
+    axios.delete(baseURL + id)
+      .then(function (response) {
+        console.log(response);
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    location.reload();
+  }
 
   return (
     <Table>
       <thead>
         <tr>
           <th>No Inventario</th>
-          <th>Modelo</th>
           <th>Centro de coste</th>
           <th>No.Serie</th>
           <th>RPE</th>
+          <th>Fecha</th>
 
         </tr>
       </thead>
@@ -42,6 +54,7 @@ const TablaMantenimiento = () => {
             }
 
           </td>
+
           <td>
             {
               data.map(d => {
@@ -87,7 +100,17 @@ const TablaMantenimiento = () => {
               })
             }
           </td>
-
+          <td>
+            {data.map(d => {
+              return (
+                <Text key={d.id}>
+                  <Button size="xs" onClick={(id) => deletePost(d.id)}>Delete</Button>
+                </Text>
+              )
+            }
+            )
+            }
+          </td>
 
         </tr>
 

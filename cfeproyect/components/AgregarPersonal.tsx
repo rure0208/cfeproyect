@@ -1,6 +1,6 @@
 import React from 'react'
-import { TextInput,Container ,Button,Grid, Group, Space} from '@mantine/core';
-import { useState, useEffect } from 'react'
+import { TextInput,Container ,Button,Grid, Space} from '@mantine/core';
+import { useState } from 'react'
 import axios from 'axios';
 
 const AgregarPersonal = () => {
