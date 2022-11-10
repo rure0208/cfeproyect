@@ -19,7 +19,7 @@ const Equipo = () => {
                 width: 700,
                 color: 'white' 
             }}>
-              <Text><RiComputerFill/>   Agregar Personal</Text>
+              <Text><RiComputerFill/>   Agregar Maquinas</Text>
               <hr/>
               <AgregarMaquinas/>
               <Space h="lg" />

@@ -22,7 +22,7 @@ const TablaEquipo = () => {
   }
 
   async function deletePost(id){
-    const baseURL="http://localhost:1337/api/personals/";  
+    const baseURL="http://localhost:1337/api/maquinas/";  
       console.log(id);
       axios.delete(baseURL+id)  
         .then(function (response) {
@@ -31,9 +31,24 @@ const TablaEquipo = () => {
         .catch(function (error) {
           console.log(error);
         });
-      location.reload();
+        location.reload();
   }
-
+  const rows = data.map((d) => (
+    <tr key={d.id}>
+      <td>{d.attributes.noInventario}</td>
+      <td>{d.attributes.modelo}</td>
+      <td>{d.attributes.centroCoste}</td>
+      <td>{d.attributes.noSerie}</td>
+      <td>{d.attributes.rpe}</td>
+      <td>
+             
+                <ActionIcon radius="xs" size="xs" >
+                     <GoTrashcan   onClick={(id) => deletePost(d.id)}/>
+                    </ActionIcon>
+                         
+                     </td> 
+    </tr>
+  ));
 
   return (
   <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}> 
@@ -65,82 +80,7 @@ const TablaEquipo = () => {
       </thead>
 
       <tbody>
-        {/* {rows} */}
-        <tr>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.noInventario}
-                  </Text>
-                )
-              })
-            }
-
-          </td>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.modelo}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.centroCoste}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.noSerie}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {
-
-              data.map(r => {
-                return (
-                  <Text key={r.id}>
-                    {r.attributes.rpe}
-                  </Text>
-                )
-              })
-            }
-          </td>
-
-          <td>
-            {data.map(d => {
-              return (
-                <ActionIcon key={d.id}>
-                  <GoTrashcan onClick={(id) => deletePost(d.id)}/>
-                </ActionIcon>
-              )
-            }
-            )
-            }
-          </td>
-
-
-        </tr>
-
-
+        {rows}
       </tbody>
 
     </Table>

@@ -26,9 +26,25 @@ const TablaMantenimiento = () => {
       });
     location.reload();
   }
+  const rows = data.map((d) => (
+    <tr key={d.id}>
+      <td>{d.attributes.noInventario}</td>
+      <td>{d.attributes.centroCoste}</td>
+      <td>{d.attributes.noSerie}</td>
+      <td>{d.attributes.rpe}</td>
+      <td>{d.attributes.fecha}</td>
+      <td>
+             
+                <ActionIcon radius="xs" size="xs" >
+                     <GoTrashcan   onClick={(id) => deletePost(d.id)}/>
+                    </ActionIcon>
+                         
+                     </td> 
+    </tr>
+  ));
 
   return (
-    <Table>
+    <Table  horizontalSpacing="xl" verticalSpacing="md" fontSize="xs">
       <thead>
         <tr>
           <th>No Inventario</th>
@@ -41,81 +57,7 @@ const TablaMantenimiento = () => {
       </thead>
 
       <tbody>
-        {/* {rows} */}
-        <tr>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.noInventario}
-                  </Text>
-                )
-              })
-            }
-
-          </td>
-
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.centroCoste}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.noSerie}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {
-              data.map(d => {
-                return (
-                  <Text key={d.id}>
-                    {d.attributes.rpe}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {
-
-              data.map(r => {
-                return (
-                  <Text key={r.id}>
-                    {r.attributes.fecha}
-                  </Text>
-                )
-              })
-            }
-          </td>
-          <td>
-            {data.map(d => {
-              return (
-                <ActionIcon key={d.id}>
-                  <GoTrashcan onClick={(id) => deletePost(d.id)}/>
-                </ActionIcon>
-              )
-            }
-            )
-            }
-          </td>
-
-        </tr>
-
-
+        {rows}
       </tbody>
 
     </Table>

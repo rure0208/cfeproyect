@@ -71,7 +71,7 @@ const AgregarMantenimiento = () => {
              <TextInput
             label="RPE"
             withAsterisk
-            value={centroCoste} onChange={(event) => setRpe(event.currentTarget.value)}
+            value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
           />
         {
                             dataw.map(d => {
