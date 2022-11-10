@@ -6,7 +6,6 @@ import { GoTrashcan } from 'react-icons/go'
 import {BiSearch} from 'react-icons/bi'
 import {HiOutlineSearchCircle} from 'react-icons/hi'
 import axios from 'axios';
-import Groups from './Groups';
 
 const TablaPersonal = () => {
     const [data, setData] = useState([]);
@@ -31,6 +30,21 @@ const TablaPersonal = () => {
           });
         location.reload();
       }
+      const rows = data.map((d) => (
+        <tr key={d.id}>
+          <td>{d.attributes.rpe}</td>
+          <td>{d.attributes.nombre}</td>
+          <td>{d.attributes.puesto}</td>
+          <td>{d.attributes.area}</td>
+          <td>
+                 
+                    <ActionIcon radius="xs" size="xs" >
+                         <GoTrashcan   onClick={(id) => deletePost(d.id)}/>
+                        </ActionIcon>
+                             
+                         </td> 
+        </tr>
+      ));
       
     return (
         <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}>
@@ -50,7 +64,7 @@ const TablaPersonal = () => {
                 </ActionIcon>
             </Group>
             
-        <Table>
+        <Table horizontalSpacing="xl" verticalSpacing="md" fontSize="xs">
             <thead>
                 <tr>
                     <th>RPE</th>
@@ -61,66 +75,7 @@ const TablaPersonal = () => {
             </thead>
 
             <tbody>
-                {/* {rows} */}
-                <tr>
-                    <td>
-                        {
-                            data.map(d => {
-                                return (
-                                    <Text key={d.id} >
-                                        {d.attributes.rpe}
-                                    </Text>
-                                )
-                            })
-                        }
-                    </td>
-                    <td>
-                        {
-                            data.map(d => {
-                                return (
-                                    <Text key={d.id}>
-                                        {d.attributes.nombre}
-                                    </Text>
-                                )
-                            })
-                        }
-                    </td>
-                    <td>
-                        {
-                            data.map(d => {
-                                return (
-                                    <Text key={d.id}>
-                                        {d.attributes.puesto}
-                                    </Text>
-                                )
-                            })
-                        }
-                    </td>
-                    <td>
-                        {
-                            data.map(d => {
-                                return (
-                                    <Text key={d.id}>
-                                        {d.attributes.area}
-                                    </Text>
-                                )
-                            })
-                        }
-                    </td>
-                         <td>
-                    {data.map(d => {
-                                return (
-                                        <ActionIcon key={d.id}>
-                                            <GoTrashcan size={12}  onClick={(id) => deletePost(d.id)}/>
-                                        </ActionIcon>
-                                //    <Text key={d.id}>
-                                //      <Button leftIcon={<GoTrashcan/>} size="xs" onClick={(id) => deletePost(d.id)}></Button> 
-                                //    </Text>
-                                    )}
-                            )
-                        }        
-                         </td>
-                </tr>
+            {rows}
             </tbody>
         </Table>
         </ScrollArea>
