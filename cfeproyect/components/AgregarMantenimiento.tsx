@@ -73,15 +73,7 @@ const AgregarMantenimiento = () => {
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
           />
-        {
-                            dataw.map(d => {
-                                return (
-                                    <Select key={d.id} data={[d.attributes.rpe]}>
-                                       
-                                    </Select>
-                                )
-                            })
-                        }
+
 
              <DatePicker
       placeholder="Seleccione una fecha"
