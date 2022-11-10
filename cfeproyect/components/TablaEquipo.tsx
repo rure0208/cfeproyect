@@ -1,7 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Text,ActionIcon } from '@mantine/core';
+import { Table, Text,ActionIcon,ScrollArea,Group,TextInput} from '@mantine/core';
 import api from '../services/api';
 import axios from 'axios';
+import {BiSearch} from 'react-icons/bi'
+import {HiOutlineSearchCircle} from 'react-icons/hi'
 import { GoTrashcan } from 'react-icons/go'
 
 const TablaEquipo = () => {
@@ -34,7 +36,22 @@ const TablaEquipo = () => {
 
 
   return (
-    
+  <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}> 
+            <Group>
+                <TextInput
+                style={{ 
+                width: 200,
+                    marginTop: 4,
+                    marginLeft: 5,  
+                }}
+                    placeholder="Buscar"
+                    mb="sm"
+                    icon={<BiSearch></BiSearch>}
+                />
+                <ActionIcon>
+                    <HiOutlineSearchCircle/>
+                </ActionIcon>
+            </Group>
     <Table>
       <thead>
         <tr>
@@ -127,6 +144,7 @@ const TablaEquipo = () => {
       </tbody>
 
     </Table>
+  </ScrollArea>
   )
 }
 
