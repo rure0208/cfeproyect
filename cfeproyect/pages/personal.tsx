@@ -40,6 +40,7 @@ const Personal = () => {
                 // height: 700,
                 width: 600, 
                 marginLeft: 40,
+                marginBottom: 4
             }}>
               <TablaPersonal />
             </Card.Section>

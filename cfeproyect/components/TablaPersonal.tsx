@@ -1,10 +1,12 @@
 import React from 'react'
 import api from '../services/api';
 import { useState, useEffect } from 'react'
-import { Table, Text,Button,ScrollArea,TextInput,ActionIcon} from '@mantine/core';
+import { Table, Text,Grid,Group,ScrollArea,TextInput,ActionIcon} from '@mantine/core';
 import { GoTrashcan } from 'react-icons/go'
 import {BiSearch} from 'react-icons/bi'
+import {HiOutlineSearchCircle} from 'react-icons/hi'
 import axios from 'axios';
+import Groups from './Groups';
 
 const TablaPersonal = () => {
     const [data, setData] = useState([]);
@@ -31,18 +33,23 @@ const TablaPersonal = () => {
       }
       
     return (
-        <ScrollArea>
-            <TextInput
-            style={{ 
-              width: 200,
-              marginTop: 4,
-              marginLeft: 5
-              
-          }}
-            placeholder="Buscar"
-            mb="sm"
-            icon={<BiSearch></BiSearch>}
-        />
+        <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}>
+            <Group>
+                <TextInput
+                style={{ 
+                width: 200,
+                    marginTop: 4,
+                    marginLeft: 5,  
+                }}
+                    placeholder="Buscar"
+                    mb="sm"
+                    icon={<BiSearch></BiSearch>}
+                />
+                <ActionIcon>
+                    <HiOutlineSearchCircle/>
+                </ActionIcon>
+            </Group>
+            
         <Table>
             <thead>
                 <tr>
@@ -104,7 +111,7 @@ const TablaPersonal = () => {
                     {data.map(d => {
                                 return (
                                         <ActionIcon key={d.id}>
-                                            <GoTrashcan onClick={(id) => deletePost(d.id)}/>
+                                            <GoTrashcan size={12}  onClick={(id) => deletePost(d.id)}/>
                                         </ActionIcon>
                                 //    <Text key={d.id}>
                                 //      <Button leftIcon={<GoTrashcan/>} size="xs" onClick={(id) => deletePost(d.id)}></Button> 

@@ -68,7 +68,12 @@ const AgregarMantenimiento = () => {
             withAsterisk
             value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
           />
-        {
+             <TextInput
+            label="RPE"
+            withAsterisk
+            value={centroCoste} onChange={(event) => setRpe(event.currentTarget.value)}
+          />
+        {/* {
                             dataw.map(d => {
                                 return (
                                     <Select key={d.id} data={[d.attributes.rpe]}>
@@ -76,7 +81,7 @@ const AgregarMantenimiento = () => {
                                     </Select>
                                 )
                             })
-                        }
+                        } */}
 
              <DatePicker
       placeholder="Seleccione una fecha"
