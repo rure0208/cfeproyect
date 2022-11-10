@@ -6,12 +6,15 @@ import { GoTrashcan } from 'react-icons/go'
 
 const TablaMantenimiento = () => {
   const [data, setData] = useState([]);
+  const [dataw, setDataw] = useState([]);
   useEffect(() => {
     init();
   }, [])
 
   async function init() {
     const list = await api.listaDeMantenimiento();
+    const list2 =await api.listaDePersonal();
+    setDataw(list2.data);
     setData(list.data);
   }
   async function deletePost(id) {
@@ -26,12 +29,13 @@ const TablaMantenimiento = () => {
       });
     location.reload();
   }
+  const rows2 = dataw.map((d) =>[d.attributes.rpe]);
   const rows = data.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
       <td>{d.attributes.centroCoste}</td>
       <td>{d.attributes.noSerie}</td>
-      <td>{d.attributes.rpe}</td>
+      <td>{rows2}</td>
       <td>{d.attributes.fecha}</td>
       <td>
              

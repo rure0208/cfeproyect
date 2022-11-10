@@ -1,29 +1,30 @@
 import React from 'react'
-import { Grid, TextInput, Space, Button, Container,Select ,NativeSelect} from '@mantine/core'
+import { Grid, TextInput, Space, Button, Container,Select } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 import { useState,useEffect } from 'react';
 import { DatePicker } from '@mantine/dates';
 import axios from 'axios';
 import api from '../services/api';
 
+
 const AgregarMantenimiento = () => {
   const [dataw, setDataw] = useState([]);
-  useEffect(() => {
-      init();
-  }, [])
-
-  async function init() {
-      const list = await api.listaDePersonal();
-      setDataw(list.data);
-      
-  }
-
   const [noInventario, setNoInventario] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
   const [noSerie, setNoSerie] = useState('');
   const [rpe, setRpe] = useState('');
   const [fecha, setFecha] = useState(new Date());
   const baseURL = "http://localhost:1337/api/mantenimientos";
+
+
+  useEffect(() => {
+    init();
+}, [])
+
+async function init() {
+    const list = await api.listaDePersonal();
+    setDataw(list.data);
+} 
 
   async function createPost() {
     
@@ -42,7 +43,7 @@ const AgregarMantenimiento = () => {
       .catch(function (error) {
         console.log(error);
       });
-    location.reload();
+    location.reload();    
   }
 
 
@@ -73,7 +74,6 @@ const AgregarMantenimiento = () => {
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
           />
-
 
              <DatePicker
       placeholder="Seleccione una fecha"
