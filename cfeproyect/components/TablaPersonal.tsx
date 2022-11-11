@@ -9,17 +9,19 @@ import axios from 'axios';
 
 const TablaPersonal = () => {
     const [data, setData] = useState([]);
+
+    const baseURL="http://localhost:1337/api/personals/";  
     useEffect(() => {
         init();
     }, [])
 
     async function init() {
         const list = await api.listaDePersonal();
-        setData(list.data);
+        setData(list.data);      
     }
-
+   
     async function deletePost(id){
-        const baseURL="http://localhost:1337/api/personals/";  
+ 
        console.log(id);
       axios.delete(baseURL+id)  
           .then(function (response) {
