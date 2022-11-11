@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, TextInput, Space, Button, Container,Select } from '@mantine/core'
+import { Grid, TextInput, Space, Button, Group,Select } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 import { useState,useEffect } from 'react';
 import { DatePicker } from '@mantine/dates';
@@ -11,12 +11,14 @@ const AgregarMantenimiento = () => {
   const [dataw, setDataw] = useState([]);
   const [noInventario, setNoInventario] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
+  const [proceso, setProceso] = useState('');
   const [noSerie, setNoSerie] = useState('');
   const [rpe, setRpe] = useState('');
   const [fecha, setFecha] = useState(new Date());
   const baseURL = "http://localhost:1337/api/mantenimientos";
 
-
+  const [search, setSearch] = useState('');
+  const [entradaFilter, setEntradaFilter] = useState([]);
   useEffect(() => {
     init();
 }, [])
@@ -24,6 +26,7 @@ const AgregarMantenimiento = () => {
 async function init() {
     const list = await api.listaDeMaquinas();
     setDataw(list.data);
+
 } 
 
   async function createPost() {
@@ -34,7 +37,8 @@ async function init() {
         centroCoste: centroCoste,
         noSerie: noSerie,
         rpe: rpe,
-        fecha: fecha
+        fecha: fecha,
+        // proceso:proceso
       }
     })
       .then(function (response) {
@@ -46,12 +50,11 @@ async function init() {
     location.reload();    
   }
   var task_noInv = dataw.map((d)=>{
-    return(   
-      d.attributes.noInventario
-     )
-
+     return(d.attributes.noInventario
+      )
+      
   })
-
+ 
 
 
   return (
@@ -69,6 +72,12 @@ async function init() {
             withAsterisk
             value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
           />
+           {/* <Select
+            label="Proceso"
+            withAsterisk
+            data={["proceso","terminado"]}
+            value={proceso} onChange={setProceso}
+          /> */}
           </Grid.Col>
         <Grid.Col span={4}>
         <TextInput
@@ -83,6 +92,7 @@ async function init() {
             withAsterisk
             value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
           />
+         
              <DatePicker
       placeholder="Seleccione una fecha"
       label="Fecha"
@@ -90,7 +100,7 @@ async function init() {
       value={fecha}
           
     />
-        </Grid.Col>
+   </Grid.Col>
 
         <Grid.Col span={4}>
           <Space h="lg" />

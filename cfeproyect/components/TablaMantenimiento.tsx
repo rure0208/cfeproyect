@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Text, ActionIcon } from '@mantine/core';
+import { Table, Text, ActionIcon,ScrollArea,TextInput,Group } from '@mantine/core';
 import axios from 'axios';
 import api from '../services/api';
 import { GoTrashcan } from 'react-icons/go'
-
+import {BiSearch} from 'react-icons/bi'
+import {HiOutlineSearchCircle} from 'react-icons/hi'
 const TablaMantenimiento = () => {
   const [data, setData] = useState([]);
   const [dataw, setDataw] = useState([]);
@@ -38,6 +39,7 @@ const TablaMantenimiento = () => {
       <td>{d.attributes.noSerie}</td>
       <td>{d.attributes.rpe}</td>
       <td>{d.attributes.fecha}</td>
+      {/* <td>{d.attributes.proceso}</td> */}
       <td>
         
              
@@ -50,15 +52,34 @@ const TablaMantenimiento = () => {
   ));
 
   return (
-    <Table  horizontalSpacing="xl" verticalSpacing="md" fontSize="xs">
+      
+    <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={10}> 
+    <Group>
+    <TextInput
+    style={{ 
+    width: 200,
+        marginTop: 4,
+        marginLeft: 5,  
+    }}
+        placeholder="Buscar"
+        mb="sm"
+        icon={<BiSearch></BiSearch>}
+    />
+    <ActionIcon>
+        <HiOutlineSearchCircle/>
+    </ActionIcon>
+</Group>
+
+    <Table  horizontalSpacing="lg" verticalSpacing="md" fontSize="xs">
       <thead>
         <tr>
           <th>No Inventario</th>
           <th>Centro de coste</th>
           <th>No.Serie</th>
-          <th>RPE</th>
+          <th>RPE</th>         
           <th>Fecha</th>
-
+          {/* <th>Estatus</th> */}
+          <th></th>
         </tr>
       </thead>
 
@@ -67,6 +88,7 @@ const TablaMantenimiento = () => {
       </tbody>
 
     </Table>
+    </ScrollArea>
   )
 }
 

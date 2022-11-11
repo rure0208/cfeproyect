@@ -52,7 +52,7 @@ const TablaEquipo = () => {
 
   return (
   <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}> 
-            <Group>
+           <Group>
                 <TextInput
                 style={{ 
                 width: 200,
@@ -67,6 +67,7 @@ const TablaEquipo = () => {
                     <HiOutlineSearchCircle/>
                 </ActionIcon>
             </Group>
+            
     <Table>
       <thead>
         <tr>
