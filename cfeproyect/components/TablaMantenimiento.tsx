@@ -29,15 +29,17 @@ const TablaMantenimiento = () => {
       });
     location.reload();
   }
-  const rows2 = dataw.map((d) =>[d.attributes.rpe]);
+  
+
   const rows = data.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
       <td>{d.attributes.centroCoste}</td>
       <td>{d.attributes.noSerie}</td>
-      <td>{rows2}</td>
+      <td>{d.attributes.rpe}</td>
       <td>{d.attributes.fecha}</td>
       <td>
+        
              
                 <ActionIcon radius="xs" size="xs" >
                      <GoTrashcan   onClick={(id) => deletePost(d.id)}/>

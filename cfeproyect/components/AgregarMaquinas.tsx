@@ -1,16 +1,25 @@
-import React from 'react'
-import { Grid, TextInput, Space, Button, Container } from '@mantine/core'
+import React, { useEffect } from 'react'
+import { Grid, TextInput, Space, Button, Select } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 import axios from 'axios';
 import { useState } from 'react'
+import api from '../services/api';
 const AgregarMaquinas = () => {
-
+  const [dataw, setDataw] = useState([]);
   const [noInventario, setNoInventario] = useState('');
   const [modelo, setModelo] = useState('');
   const [rpe, setrpe] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
   const [noSerie, setNoSerie] = useState('');
   const baseURL = "http://localhost:1337/api/maquinas";
+  useEffect(() => {
+    init();
+}, [])
+
+async function init() {
+    const list = await api.listaDePersonal();
+    setDataw(list.data);
+} 
   async function createPost() {
     await axios.post(baseURL, {
       data: {
@@ -29,6 +38,13 @@ const AgregarMaquinas = () => {
       });
     location.reload();
   }
+  var task_rpe = dataw.map((d)=>{
+    return(   
+      d.attributes.rpe
+     )
+
+  })
+
   return (
     <Grid>
       <Grid.Col span={4}>
@@ -42,10 +58,12 @@ const AgregarMaquinas = () => {
           withAsterisk
           value={modelo} onChange={(event) => setModelo(event.currentTarget.value)}
         />
-        <TextInput
-          label="RPE"
-          value={rpe} onChange={(event) => setrpe(event.currentTarget.value)}
-        />
+         <Select
+            label="RPE"
+            withAsterisk
+            data={task_rpe}
+            value={rpe} onChange={setrpe}
+          />
       </Grid.Col>
 
       <Grid.Col span={4}>

@@ -22,7 +22,7 @@ const AgregarMantenimiento = () => {
 }, [])
 
 async function init() {
-    const list = await api.listaDePersonal();
+    const list = await api.listaDeMaquinas();
     setDataw(list.data);
 } 
 
@@ -45,36 +45,44 @@ async function init() {
       });
     location.reload();    
   }
+  var task_noInv = dataw.map((d)=>{
+    return(   
+      d.attributes.noInventario
+     )
+
+  })
+
 
 
   return (
       <Grid>
         <Grid.Col span={4}>
-          <TextInput
-            label="No. Inventario"
+        <Select
+            label="No.Inventario"
             withAsterisk
-            value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
+            data={task_noInv}
+            value={noInventario} onChange={setNoInventario}
           />
-
-          <TextInput
-            label="No. Serie"
-            withAsterisk
-            value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
-          />
-        </Grid.Col>
-
-        <Grid.Col span={4}>
-          <TextInput
-            label="Centro de Coste"
+            <TextInput
+            label="CentroCoste"
+            disabled
             withAsterisk
             value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
           />
-             <TextInput
-            label="RPE"
+          </Grid.Col>
+        <Grid.Col span={4}>
+        <TextInput
+        disabled
+            label="rpe"
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
           />
-
+     <TextInput
+        disabled
+            label="Numero Serie"
+            withAsterisk
+            value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
+          />
              <DatePicker
       placeholder="Seleccione una fecha"
       label="Fecha"
