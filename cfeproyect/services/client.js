@@ -22,5 +22,8 @@ export default class Client {
     static async POST(url, body) {
         return await (await axios.post(this.BASE_URL + url,body, this.securityConfig())).data;
     }
+    static async DELETE(url, body) {
+        return await (await axios.delete(this.BASE_URL + url,this.securityConfig()));
+    }
 
 }

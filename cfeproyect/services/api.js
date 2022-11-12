@@ -15,6 +15,9 @@ const api = {
     agregarPersonal: async (body) =>{
         return await client.POST('/api/personals', body);
     },
+    removerPersonal: async (id) => {
+        return await client.DELETE('/api/personals/' + id);
+    }
 }
 
 export default api;

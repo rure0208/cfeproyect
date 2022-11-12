@@ -1,5 +1,5 @@
 import { Card,Container, createStyles, Space,Text } from '@mantine/core';
-import React from 'react';
+import React, { useState } from 'react';
 import AgregarPersonal from '../components/AgregarPersonal';
 import AppShel from '../components/appshel';
 import Layout from '../components/Layout';
@@ -20,6 +20,12 @@ import { AiOutlineUserAdd } from 'react-icons/ai'
 
 const Personal = () => {
   // const { classes } = useStyles();
+  const [reload, setReload] = useState(false);
+  
+  function cargarData(){
+    setReload(!reload);  
+  }
+
   return (
     <Layout tituloPestaña='Personal'>
       <AppShel tituloPagina='Personal'>
@@ -32,7 +38,7 @@ const Personal = () => {
             }}>
             <Text><AiOutlineUserAdd/>   Agregar Personal</Text>
             <hr/>
-            <AgregarPersonal />
+            <AgregarPersonal recargar = {cargarData}/>
             
             <Space h="lg" />
             <Card.Section style={{ 
@@ -42,7 +48,7 @@ const Personal = () => {
                 marginLeft: 40,
                 marginBottom: 4
             }}>
-              <TablaPersonal />
+              <TablaPersonal reload={reload} />
             </Card.Section>
             </Card>
           </Container>

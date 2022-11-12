@@ -2,15 +2,19 @@ import React from 'react'
 import { TextInput,Container ,Button,Grid, Group, Space} from '@mantine/core';
 import { useState, useEffect } from 'react'
 import api from '../services/api';
+import Notification from './NotificationToast';
 
-const AgregarPersonal = () => {
+const AgregarPersonal = (props) => {
   const [rpe, setrpe] = useState('');
   const [puesto, setpuesto] = useState('');
   const [nombre, setnombre] = useState('');
   const [area, setarea] = useState('');
 
 async function createPost() {
-  location.reload();
+
+  if(!validacion()){
+    return;
+  }
 
   const body = {
     data:{ 
@@ -20,8 +24,26 @@ async function createPost() {
         area:area
       }
     }
+  try {
+    await api.agregarPersonal(body);
+    limpiarFormulario();
+    props.recargar();
+    Notification.success("Usuarios","Usuario agregado correctamente");
+  } catch (error) {
+    Notification.error("Usuarios","Usuario no creado");
+    console.error(error);
+  }
+}
 
-  await api.agregarPersonal(body);
+function limpiarFormulario(){
+  setrpe('');
+  setpuesto('');
+  setnombre('');
+  setarea('');
+}
+
+function validacion() {
+  return rpe != '' && puesto != '' && nombre != '' && area != '' ;
 }
 
   return (
