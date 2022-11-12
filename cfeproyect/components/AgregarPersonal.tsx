@@ -1,31 +1,28 @@
 import React from 'react'
 import { TextInput,Container ,Button,Grid, Group, Space} from '@mantine/core';
 import { useState, useEffect } from 'react'
-import axios from 'axios';
+import api from '../services/api';
 
 const AgregarPersonal = () => {
   const [rpe, setrpe] = useState('');
   const [puesto, setpuesto] = useState('');
   const [nombre, setnombre] = useState('');
   const [area, setarea] = useState('');
-  const baseURL="http://localhost:1337/api/personals";   
+
 async function createPost() {
   location.reload();
-  await axios.post(baseURL,{data:{ 
-    rpe:rpe,
-  nombre:nombre,
-  puesto:puesto,
-  area:area
-}})   
-    .then(function (response) {
-      console.log(response);
-    })
-    .catch(function (error) {
-      console.log(error);
-    });
+
+  const body = {
+    data:{ 
+        rpe:rpe,
+        nombre:nombre,
+        puesto:puesto,
+        area:area
+      }
+    }
+
+  await api.agregarPersonal(body);
 }
-
-
 
   return (
 <Container>
@@ -58,7 +55,7 @@ async function createPost() {
     <Space h="lg" />
     <Space h="lg" />
     <Space h="lg" />
-      <Button onClick={createPost}>agregar</Button>
+      <Button onClick={createPost}>Agregar</Button>
     </Grid.Col>
     </Grid>
 </Container>
