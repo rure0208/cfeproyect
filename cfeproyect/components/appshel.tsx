@@ -7,6 +7,7 @@ import {RiUserSettingsLine} from 'react-icons/ri'
 import {FaUsers,FaDesktop} from 'react-icons/fa'
 import {GoSignOut} from 'react-icons/go'
 import {VscSymbolProperty} from 'react-icons/vsc'
+
 const AppShel = ({ children, tituloPagina }) => {
   const theme = useMantineTheme();
   const [opened, setOpened] = useState(false);

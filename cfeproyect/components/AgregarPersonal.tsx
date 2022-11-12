@@ -1,31 +1,29 @@
 import React from 'react'
-import { TextInput, Container, Button, Grid, Space } from '@mantine/core';
-import { useState } from 'react'
-import axios from 'axios';
+import { TextInput,Container ,Button,Grid, Group, Space} from '@mantine/core';
+import { useState, useEffect } from 'react'
+import api from '../services/api';
 
 const AgregarPersonal = () => {
   const [rpe, setrpe] = useState('');
   const [puesto, setpuesto] = useState('');
   const [nombre, setnombre] = useState('');
   const [area, setarea] = useState('');
-  const baseURL = "http://localhost:1337/api/personals";
-  async function createPost() {
-    await axios.post(baseURL, {
-      data: {
-        rpe: rpe,
-        nombre: nombre,
-        puesto: puesto,
-        area: area
+
+async function createPost() {
+  location.reload();
+
+  const body = {
+    data:{ 
+        rpe:rpe,
+        nombre:nombre,
+        puesto:puesto,
+        area:area
       }
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    location.reload();
-  }
+    }
+
+  await api.agregarPersonal(body);
+}
+
   return (
     <Grid>
       <Grid.Col span={4}>
