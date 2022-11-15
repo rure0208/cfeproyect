@@ -60,12 +60,17 @@ async function init() {
   return (
       <Grid>
         <Grid.Col span={4}>
-        <Select
+        {/* <Select
             label="No.Inventario"
             withAsterisk
             data={task_noInv}
             value={noInventario} onChange={setNoInventario}
-          />
+          /> */}
+            <TextInput
+              label="No. Inventario"
+              withAsterisk
+            />
+
             <TextInput
             label="CentroCoste"
             disabled

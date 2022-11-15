@@ -56,7 +56,7 @@ const TablaMantenimiento = () => {
         <Group>
             <TextInput
             style={{ 
-            width: 200,
+                width: 200,
                 marginTop: 4,
                 marginLeft: 5,  
             }}

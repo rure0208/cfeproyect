@@ -58,11 +58,15 @@ async function init() {
           withAsterisk
           value={modelo} onChange={(event) => setModelo(event.currentTarget.value)}
         />
-         <Select
+         {/* <Select
             label="RPE"
             withAsterisk
             data={task_rpe}
             value={rpe} onChange={setrpe}
+          /> */}
+          <TextInput
+            label="RPE"
+            withAsterisk
           />
       </Grid.Col>
 
