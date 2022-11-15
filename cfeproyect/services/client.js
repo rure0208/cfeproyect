@@ -8,14 +8,13 @@ export default class Client {
     static securityConfig() {
         const token = localStorage.getItem('token');
 
-        return {
-            headers: {
-                'Authorization': `Bearer ${token}`,
-                'Content-Type': 'application/json'
-            }
-        }
+         return {
+             headers: {
+                 'Authorization': `9b802 ${token}`,
+                 'Content-Type': 'application/json'
+             }
+         }
     }
-
     static async GET(url) {
         return await (await axios.get(this.BASE_URL + url, this.securityConfig())).data;
     }
