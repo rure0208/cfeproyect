@@ -4,7 +4,7 @@ import { Card, Container, Space,Text } from '@mantine/core';
 import Layout from '../components/Layout'
 import TablaMantenimiento from '../components/TablaMantenimiento';
 import AgregarMantenimiento from '../components/AgregarMantenimiento';
-import { RiComputerFill } from 'react-icons/ri'
+import { FaTools } from 'react-icons/fa'
 const Mantenimiento = () => {
   return (
     <Layout tituloPestaña='Mantenimiento'>
@@ -16,7 +16,7 @@ const Mantenimiento = () => {
                 width: 700,
                 color: 'white' 
             }}>
-      <Text><RiComputerFill/>   Mantenimiento </Text>
+      <Text><FaTools/>   Mantenimiento </Text>
       <hr/>
             <AgregarMantenimiento/>
               <Space h="lg" />
@@ -26,8 +26,7 @@ const Mantenimiento = () => {
                 width: 600, 
                 marginLeft: 40,
                 marginBottom: 4
-              }}>  
-              <Space h="lg" />
+              }}>   
                 <TablaMantenimiento/>
                 </Card.Section>
               </Card>

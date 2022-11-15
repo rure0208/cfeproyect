@@ -30,7 +30,6 @@ const Equipo = () => {
                 marginLeft: 40,
                 marginBottom: 4
               }}>  
-              <Space h="lg" />
                 <TablaEquipo />
               </Card.Section>
           </Card>

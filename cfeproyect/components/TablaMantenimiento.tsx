@@ -51,26 +51,25 @@ const TablaMantenimiento = () => {
     </tr>
   ));
 
-  return (
-      
-    <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={10}> 
-    <Group>
-    <TextInput
-    style={{ 
-    width: 200,
-        marginTop: 4,
-        marginLeft: 5,  
-    }}
-        placeholder="Buscar"
-        mb="sm"
-        icon={<BiSearch></BiSearch>}
-    />
-    <ActionIcon>
-        <HiOutlineSearchCircle/>
-    </ActionIcon>
-</Group>
+  return (    
+    <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}> 
+        <Group>
+            <TextInput
+            style={{ 
+            width: 200,
+                marginTop: 4,
+                marginLeft: 5,  
+            }}
+                placeholder="Buscar"
+                mb="sm"
+                icon={<BiSearch></BiSearch>}
+            />
+            <ActionIcon>
+                <HiOutlineSearchCircle/>
+            </ActionIcon>
+        </Group>
 
-    <Table  horizontalSpacing="lg" verticalSpacing="md" fontSize="xs">
+    <Table  horizontalSpacing="xl" verticalSpacing="md" fontSize="xs">
       <thead>
         <tr>
           <th>No Inventario</th>
@@ -86,7 +85,6 @@ const TablaMantenimiento = () => {
       <tbody>
         {rows}
       </tbody>
-
     </Table>
     </ScrollArea>
   )

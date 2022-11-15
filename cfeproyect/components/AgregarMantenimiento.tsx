@@ -82,7 +82,7 @@ async function init() {
         <Grid.Col span={4}>
         <TextInput
         disabled
-            label="rpe"
+            label="RPE"
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
           />
