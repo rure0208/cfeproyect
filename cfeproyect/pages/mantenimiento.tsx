@@ -16,7 +16,7 @@ const Mantenimiento = () => {
                 width: 700,
                 color: 'white' 
             }}>
-      <Text><FaTools/>   Mantenimiento </Text>
+      <Text><FaTools/>   Mantenimiento de Computo </Text>
       <hr/>
             <AgregarMantenimiento/>
               <Space h="lg" />
