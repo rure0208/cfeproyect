@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Grid, TextInput, Space, Button, Select } from '@mantine/core'
+import { Grid, TextInput, Space, Button, Select,ActionIcon } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 import axios from 'axios';
 import { useState } from 'react'
@@ -87,7 +87,11 @@ async function init() {
         <Space h="lg" />
         <Space h="lg" />
         <Space h="lg" />
-        <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button>
+
+        <ActionIcon variant="light" size={22} color="dark" onClick={createPost}>
+                <FcPlus/>
+        </ActionIcon>
+        {/* <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button> */}
       </Grid.Col>
     </Grid>
 

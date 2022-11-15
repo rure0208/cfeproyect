@@ -1,6 +1,7 @@
 import React from 'react'
-import { Grid, TextInput, Space, Button, Group,Select } from '@mantine/core'
+import { Grid, TextInput, Space, Button, Group,Select,ActionIcon } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
+
 import { useState,useEffect } from 'react';
 import { DatePicker } from '@mantine/dates';
 import axios from 'axios';
@@ -111,7 +112,10 @@ async function init() {
           <Space h="lg" />
           <Space h="lg" />
           <Space h="lg" />
-          <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button>
+          <ActionIcon variant="light" size={22} color="dark" onClick={createPost}>
+                <FcPlus/>
+          </ActionIcon>
+          {/* <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button> */}
         </Grid.Col>
       </Grid>
   

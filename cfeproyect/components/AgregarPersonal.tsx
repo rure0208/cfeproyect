@@ -1,5 +1,6 @@
 import React from 'react'
-import { TextInput,Container ,Button,Grid, Group, Space} from '@mantine/core';
+import { TextInput,Container ,Button,Grid, Group, Space,ActionIcon} from '@mantine/core';
+import { FcPlus } from 'react-icons/fc'
 import { useState, useEffect } from 'react'
 import api from '../services/api';
 import Notification from './NotificationToast';
@@ -76,7 +77,10 @@ function validacion() {
         <Space h="lg" />
         <Space h="lg" />
         <Space h="lg" />
-        <Button onClick={createPost}>agregar</Button>
+        <ActionIcon variant="light" size={22} color="dark" onClick={createPost}>
+                <FcPlus/>
+        </ActionIcon>
+        {/* <Button onClick={createPost}>agregar</Button> */}
       </Grid.Col>
     </Grid>
   )
