@@ -28,29 +28,29 @@ const TablaPersonal = (props) => {
 
     }
 
-    const handleChange=e=>{
+    const handleChange = e => {
         setBuscar(e.target.value);
         filtrar(e.target.value);
-      }
-      
-const filtrar=(terminoBusqueda)=>{
-    var resultadosBusqueda=data.filter((elemento)=>{
-      if(elemento.attributes.rpe.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-      || elemento.attributes.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
-      ){
-        return elemento;
-      }
-    });
-    setUsuarios(resultadosBusqueda);
-  }
-  
-    async function deletePost(id:string) {
+    }
+
+    const filtrar = (terminoBusqueda) => {
+        var resultadosBusqueda = data.filter((elemento) => {
+            if (elemento.attributes.rpe.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+                || elemento.attributes.nombre.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+            ) {
+                return elemento;
+            }
+        });
+        setUsuarios(resultadosBusqueda);
+    }
+
+    async function deletePost(id: string) {
         try {
             await api.removerPersonal(id);
-            Notification.success("Usuarios","Se ha eliminado el usuario correctamente");
+            Notification.success("Personal", "Se ha eliminado el usuario correctamente");
             init();
         } catch (error) {
-            Notification.error("Usuarios","No se ha podido eliminar el usuario");
+            Notification.error("Personal", "No se ha podido eliminar el usuario");
             console.error(error);
         }
     }

@@ -17,6 +17,9 @@ const api = {
     },
     removerPersonal: async (id) => {
         return await client.DELETE('/api/personals/' + id);
+    },
+    removerMaquinas: async (id) => {
+        return await client.DELETE('/api/maquinas/' + id);
     }
 }
 
