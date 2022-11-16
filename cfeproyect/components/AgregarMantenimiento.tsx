@@ -35,7 +35,7 @@ const AgregarMantenimiento = (props) => {
     try {
       await api.agregarMantenimiento(body);
       limpiarFormulario();
-      //props.recargar();
+      props.recargar();
       Notification.success("Usuarios","Usuario agregado correctamente");
     } catch (error) {
       Notification.error("Usuarios","Usuario no creado");

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import AppShel from '../components/appshel';
 import { Card, Container, Space,Text } from '@mantine/core';
 import Layout from '../components/Layout'
@@ -6,6 +6,11 @@ import TablaMantenimiento from '../components/TablaMantenimiento';
 import AgregarMantenimiento from '../components/AgregarMantenimiento';
 import { FaTools } from 'react-icons/fa'
 const Mantenimiento = () => {
+  const [reload, setReload] = useState(false);
+  
+  function cargarData(){
+    setReload(!reload);  
+  }
   return (
     <Layout tituloPestaña='Mantenimiento'>
       <AppShel tituloPagina='Mantenimiento'>
@@ -18,7 +23,7 @@ const Mantenimiento = () => {
             }}>
       <Text><FaTools/>   Mantenimiento de Computo </Text>
       <hr/>
-            <AgregarMantenimiento/>
+            <AgregarMantenimiento recargar = {cargarData}/>
               <Space h="lg" />
               <Card.Section style={{ 
                 background: '#D9D9D9',
@@ -27,7 +32,7 @@ const Mantenimiento = () => {
                 marginLeft: 40,
                 marginBottom: 4
               }}>   
-                <TablaMantenimiento/>
+                <TablaMantenimiento reload={reload} />
                 </Card.Section>
               </Card>
           </Container>

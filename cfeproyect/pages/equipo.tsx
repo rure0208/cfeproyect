@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react'
 import {Card, Container, Space,Text} from '@mantine/core';
 import AppShel from '../components/appshel';
 import Layout from '../components/Layout'
@@ -8,7 +8,11 @@ import { RiComputerFill } from 'react-icons/ri'
 
 const Equipo = () => {
 
-
+  const [reload, setReload] = useState(false);
+  
+  function cargarData(){
+    setReload(!reload);  
+  }
   return (
     <Layout tituloPestaña='Maquinas'>
       <AppShel tituloPagina='Maquinas'>
@@ -21,7 +25,7 @@ const Equipo = () => {
             }}>
               <Text><RiComputerFill/>   Agregar Maquinas</Text>
               <hr/>
-              <AgregarMaquinas/>
+              <AgregarMaquinas recargar = {cargarData}/>
               <Space h="lg" />
               <Card.Section style={{ 
                 background: '#D9D9D9',
@@ -30,7 +34,7 @@ const Equipo = () => {
                 marginLeft: 40,
                 marginBottom: 4
               }}>  
-                <TablaEquipo />
+                <TablaEquipo reload={reload} />
               </Card.Section>
           </Card>
         </Container>

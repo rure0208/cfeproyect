@@ -59,7 +59,7 @@ const AgregarMaquinas = (props) => {
     try {
       await api.agregarMaquinas(body);
       limpiarFormulario();
-      //props.recargar();
+      props.recargar();
       Notification.success("Usuarios","Usuario agregado correctamente");
     } catch (error) {
       Notification.error("Usuarios","Usuario no creado");
