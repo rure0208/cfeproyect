@@ -1,7 +1,7 @@
 import React from 'react'
-import { TextInput,Container ,Button,Grid, Group, Space,ActionIcon} from '@mantine/core';
+import { TextInput,Grid, Space,ActionIcon} from '@mantine/core';
 import { FcPlus } from 'react-icons/fc'
-import { useState, useEffect } from 'react'
+import { useState} from 'react'
 import api from '../services/api';
 import Notification from './NotificationToast';
 

@@ -1,10 +1,12 @@
 import React, { useEffect } from 'react'
-import { Grid, TextInput, Space, Button, Select,ActionIcon } from '@mantine/core'
+import { Grid, TextInput, Space, ActionIcon } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 import axios from 'axios';
 import { useState } from 'react'
 import api from '../services/api';
+import Notification from './NotificationToast';
 const AgregarMaquinas = () => {
+
   const [dataw, setDataw] = useState([]);
   const [noInventario, setNoInventario] = useState('');
   const [modelo, setModelo] = useState('');
@@ -14,12 +16,12 @@ const AgregarMaquinas = () => {
   const baseURL = "http://localhost:1337/api/maquinas";
   useEffect(() => {
     init();
-}, [])
+  }, [])
 
-async function init() {
+  async function init() {
     const list = await api.listaDePersonal();
     setDataw(list.data);
-} 
+  }
   async function createPost() {
     await axios.post(baseURL, {
       data: {
@@ -31,17 +33,19 @@ async function init() {
       }
     })
       .then(function (response) {
-        console.log(response);
+        Notification.success("Máquinas", "Se agregó correctamente");
+       
       })
       .catch(function (error) {
+        Notification.error("Máquinas", "No se ha podido agregar");
         console.log(error);
       });
     location.reload();
   }
-  var task_rpe = dataw.map((d)=>{
-    return(   
+  var task_rpe = dataw.map((d) => {
+    return (
       d.attributes.rpe
-     )
+    )
 
   })
 
@@ -58,16 +62,17 @@ async function init() {
           withAsterisk
           value={modelo} onChange={(event) => setModelo(event.currentTarget.value)}
         />
-         {/* <Select
+        {/* <Select
             label="RPE"
             withAsterisk
             data={task_rpe}
             value={rpe} onChange={setrpe}
           /> */}
-          <TextInput
-            label="RPE"
-            withAsterisk
-          />
+        <TextInput
+          label="RPE"
+          value={rpe} onChange={(event) => setrpe(event.currentTarget.value)}
+          withAsterisk
+        />
       </Grid.Col>
 
       <Grid.Col span={4}>
@@ -89,7 +94,7 @@ async function init() {
         <Space h="lg" />
 
         <ActionIcon variant="light" size={22} color="dark" onClick={createPost}>
-                <FcPlus/>
+          <FcPlus />
         </ActionIcon>
         {/* <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button> */}
       </Grid.Col>

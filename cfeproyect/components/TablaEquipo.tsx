@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { Table, Text, ActionIcon, ScrollArea, Group, TextInput } from '@mantine/core';
 import api from '../services/api';
 import Notification from './NotificationToast';
-import axios from 'axios';
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
 import { GoTrashcan } from 'react-icons/go'
