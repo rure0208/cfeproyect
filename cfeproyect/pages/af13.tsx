@@ -5,8 +5,8 @@ import Layout from '../components/Layout'
 import { VscSettingsGear,VscFilePdf,VscFile } from 'react-icons/vsc'
 import {BiSearch} from 'react-icons/bi'
 import {HiOutlineSearchCircle} from 'react-icons/hi'
-
 const AF13 = () => {
+    
   return (
     <Layout tituloPestaña='Equipo de cómputo'>
     <AppShel tituloPagina='AF13'>
