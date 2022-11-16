@@ -23,6 +23,9 @@ const api = {
     },
     removerMaquinas: async (id) => {
         return await client.DELETE('/api/maquinas/' + id);
+    },
+    removerMantenimiento: async (id) => {
+        return await client.DELETE('/api/mantenimientos/' + id);
     }
 }
 

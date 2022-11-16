@@ -1,7 +1,7 @@
 import React from 'react'
 import api from '../services/api';
 import { useState, useEffect } from 'react'
-import { Table, Text, Grid, Group, ScrollArea, TextInput, ActionIcon } from '@mantine/core';
+import { Table,  Group, ScrollArea, TextInput, ActionIcon } from '@mantine/core';
 import { GoTrashcan } from 'react-icons/go'
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
