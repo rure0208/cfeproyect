@@ -8,30 +8,26 @@ import { GoTrashcan } from 'react-icons/go'
 
 const TablaEquipo = (props) => {
   const [data, setData] = useState([]);
-  const [data1, setData1] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
   const [buscar, setBuscar] = useState("");
   useEffect(() => {
     init();
-  }, [])
+}, [])
 
-  useEffect(() => {
+useEffect(() => {
     init();
-  }, [props.reload])
+}, [props.reload])
+
 
   async function init() {
     const list = await api.listaDeMaquinas();
     setData(list.data);
-
-
-    const list1 = await api.listaDePersonal();
-    setData1(list1.data1);
-
+    setUsuarios(list.data);
   }
-
   const handleChange = e => {
     setBuscar(e.target.value);
     filtrar(e.target.value);
-  }
+}
 
   const filtrar = (terminoBusqueda) => {
     var resultado = data.filter((elemento) => {
@@ -40,7 +36,7 @@ const TablaEquipo = (props) => {
         return elemento;
       }
     });
-    setData(resultado);
+    setUsuarios(resultado);
   }
 
   async function deletePost(id: String) {
@@ -65,7 +61,7 @@ const TablaEquipo = (props) => {
     }
 
   }
-  const rows = data && data.map((d) => (
+  const rows = usuarios && usuarios.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
       <td>{d.attributes.modelo}</td>

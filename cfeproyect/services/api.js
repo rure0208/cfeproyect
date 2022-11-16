@@ -18,6 +18,9 @@ const api = {
     agregarMaquinas: async (body) =>{
         return await client.POST('/api/maquinas', body);
     },
+    agregarMantenimiento: async (body) =>{
+        return await client.POST('/api/mantenimientos', body);
+    },
     removerPersonal: async (id) => {
         return await client.DELETE('/api/personals/' + id);
     },

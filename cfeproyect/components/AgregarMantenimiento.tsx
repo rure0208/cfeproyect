@@ -6,9 +6,10 @@ import { useState,useEffect } from 'react';
 import { DatePicker } from '@mantine/dates';
 import axios from 'axios';
 import api from '../services/api';
+import Notification from './NotificationToast';
 
 
-const AgregarMantenimiento = () => {
+const AgregarMantenimiento = (props) => {
   const [dataw, setDataw] = useState([]);
   const [noInventario, setNoInventario] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
@@ -16,40 +17,51 @@ const AgregarMantenimiento = () => {
   const [noSerie, setNoSerie] = useState('');
   const [rpe, setRpe] = useState('');
   const [fecha, setFecha] = useState(new Date());
-  const baseURL = "http://localhost:1337/api/mantenimientos";
-
-  const [search, setSearch] = useState('');
-  const [entradaFilter, setEntradaFilter] = useState([]);
-  useEffect(() => {
-    init();
-}, [])
-
-async function init() {
-    const list = await api.listaDeMaquinas();
-    setDataw(list.data);
-
-} 
 
   async function createPost() {
-    
-    await axios.post(baseURL, {
+
+    if(!validacion()){
+      return;
+    }
+    const body = {
       data: {
-        noInventario: noInventario,
-        centroCoste: centroCoste,
-        noSerie: noSerie,
-        rpe: rpe,
-        fecha: fecha,
-        // proceso:proceso
+              noInventario: noInventario,
+               centroCoste: centroCoste,
+               noSerie: noSerie,
+               rpe: rpe,
+               fecha:fecha,
+             }
       }
-    })
-      .then(function (response) {
-        console.log(response);
-      })
-      .catch(function (error) {
-        console.log(error);
-      });
-    location.reload();    
+    try {
+      await api.agregarMantenimiento(body);
+      limpiarFormulario();
+      //props.recargar();
+      Notification.success("Usuarios","Usuario agregado correctamente");
+    } catch (error) {
+      Notification.error("Usuarios","Usuario no creado");
+      console.error(error);
+    }
   }
+  
+function limpiarFormulario(){
+  setNoInventario('');
+  setCentroCoste('');
+  setNoSerie('');
+  setRpe('');
+  setFecha(new Date());
+
+}
+
+function validacion() {
+  return noInventario != '' && centroCoste != '' && noSerie != '' && rpe != '' ;
+}
+
+  
+
+
+
+
+
   var task_noInv = dataw.map((d)=>{
      return(d.attributes.noInventario
       )
@@ -70,11 +82,12 @@ async function init() {
             <TextInput
               label="No. Inventario"
               withAsterisk
+              value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
             />
 
             <TextInput
             label="CentroCoste"
-            disabled
+           // disabled
             withAsterisk
             value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
           />
@@ -87,13 +100,13 @@ async function init() {
           </Grid.Col>
         <Grid.Col span={4}>
         <TextInput
-        disabled
+        //disabled
             label="RPE"
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
           />
      <TextInput
-        disabled
+       // disabled
             label="Numero Serie"
             withAsterisk
             value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}

@@ -8,22 +8,22 @@ import { HiOutlineSearchCircle } from 'react-icons/hi'
 
 const TablaMantenimiento = (props) => {
   const [data, setData] = useState([]);
-  const [dataw, setDataw] = useState([]);
+  const [usuarios, setUsuarios] = useState([]);
   const [buscar, setBuscar] = useState("");
 
   useEffect(() => {
     init();
-  }, [])
+}, [])
 
-  useEffect(() => {
+useEffect(() => {
     init();
-  }, [props.reload])
+}, [props.reload])
 
 
   async function init() {
     const list = await api.listaDeMantenimiento();
     const list2 = await api.listaDePersonal();
-    setDataw(list2.data);
+    setUsuarios(list.data);
     setData(list.data);
   }
 
@@ -39,7 +39,7 @@ const TablaMantenimiento = (props) => {
         return elemento;
       }
     });
-    setData(resultadosBusqueda);
+    setUsuarios(resultadosBusqueda);
   }
   /* async function deletePost(id) {
      const baseURL = "http://localhost:1337/api/mantenimientos/";
@@ -67,7 +67,7 @@ const TablaMantenimiento = (props) => {
 
   }
 
-  const rows = data && data.map((d) => (
+  const rows = usuarios && usuarios.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
       <td>{d.attributes.centroCoste}</td>
