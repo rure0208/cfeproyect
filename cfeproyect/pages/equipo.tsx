@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import {Card, Container, Space,Text} from '@mantine/core';
+import {Card, Container, Space,Text,Divider,Group,ActionIcon} from '@mantine/core';
 import AppShel from '../components/appshel';
 import Layout from '../components/Layout'
 import TablaEquipo from '../components/TablaEquipo';
+import { BsPencilSquare } from 'react-icons/bs'
 import AgregarMaquinas from '../components/AgregarMaquinas';
 import { RiComputerFill } from 'react-icons/ri'
 
@@ -21,10 +22,12 @@ const Equipo = () => {
                 background: '#758E75',
                 // height: 700,
                 width: 700,
-                color: 'white' 
+                color: 'white',
+                marginTop: 20 
             }}>
-              <Text><RiComputerFill/>   Agregar Maquinas</Text>
-              <hr/>
+              <Text size={19}><RiComputerFill/>Agregar Maquina</Text>
+              <Divider color={"black"} size={2}/>
+              
               <AgregarMaquinas recargar = {cargarData}/>
               <Space h="lg" />
               <Card.Section style={{ 
@@ -32,10 +35,15 @@ const Equipo = () => {
                 // height: 700,
                 width: 600, 
                 marginLeft: 40,
-                marginBottom: 4
+                marginBottom: 4,
               }}>  
                 <TablaEquipo reload={reload} />
               </Card.Section>
+              <Group position='right' >
+            <ActionIcon variant="light" size={35} color="dark">
+                <BsPencilSquare/>
+            </ActionIcon>
+            </Group>
           </Card>
         </Container>
       </AppShel>

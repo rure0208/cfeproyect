@@ -1,6 +1,6 @@
 import React from 'react'
 import AppShel from '../components/appshel'
-import { Container, Space,Card,Text,Group,TextInput,ActionIcon} from '@mantine/core';
+import { Container, Space,Card,Text,Group,TextInput,ActionIcon,Divider} from '@mantine/core';
 import Layout from '../components/Layout'
 import { VscSettingsGear,VscFilePdf,VscFile } from 'react-icons/vsc'
 import {BiSearch} from 'react-icons/bi'
@@ -35,8 +35,8 @@ const AF13 = () => {
                 width: 700,
                 color: 'white' 
             }}>
-            <Text><VscFile/>  Plantilla de Excel</Text>
-            <hr/>
+            <Text size={19}><VscFile/>  Plantilla de Excel</Text>
+            <Divider color={"black"} size={2}/>
             <Space h="lg" />
             <Card.Section style={{ 
                 background: '#D9D9D9',

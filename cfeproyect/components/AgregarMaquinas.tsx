@@ -90,7 +90,9 @@ function validacion() {
   
 
   return (
-    <Grid>
+    <Grid style={{ 
+      marginTop: 10 ,
+      }}>
       <Grid.Col span={4}>
         <TextInput
           label="No. Inventario:"

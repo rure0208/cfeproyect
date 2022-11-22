@@ -1,8 +1,9 @@
-import { Card,Container, createStyles, Space,Text } from '@mantine/core';
+import { Card,Container, createStyles, Space,Text, Divider,Group, ActionIcon } from '@mantine/core';
 import React, { useState } from 'react';
 import AgregarPersonal from '../components/AgregarPersonal';
 import AppShel from '../components/appshel';
 import Layout from '../components/Layout';
+import { BsPencilSquare } from 'react-icons/bs'
 import TablaPersonal from '../components/TablaPersonal';
 import { AiOutlineUserAdd } from 'react-icons/ai'
 
@@ -32,12 +33,13 @@ const Personal = () => {
           <Container size={700} px={0} >
             <Card style={{ 
                 background: '#758E75',
-                // height: 700,
+                height: 500,
                 width: 700,
-                color: 'white' 
+                color: 'white',
+                marginTop: 20
             }}>
-            <Text><AiOutlineUserAdd/>   Agregar Personal</Text>
-            <hr/>
+            <Text size={19}><AiOutlineUserAdd/>   Agregar Personal</Text>
+            <Divider color={"black"} size={2}/>
             <AgregarPersonal recargar = {cargarData}/>
             
             <Space h="lg" />
@@ -50,6 +52,12 @@ const Personal = () => {
             }}>
               <TablaPersonal reload={reload} />
             </Card.Section>
+            <Space/>
+            <Group position='right' >
+            <ActionIcon variant="light" size={35} color="dark">
+                <BsPencilSquare/>
+            </ActionIcon>
+            </Group>
             </Card>
           </Container>
 

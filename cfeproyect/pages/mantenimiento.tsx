@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import AppShel from '../components/appshel';
-import { Card, Container, Space,Text } from '@mantine/core';
+import { Card, Container, Space,Text, Divider,Group,ActionIcon } from '@mantine/core';
 import Layout from '../components/Layout'
+import { BsPencilSquare} from 'react-icons/bs'
 import TablaMantenimiento from '../components/TablaMantenimiento';
+
 import AgregarMantenimiento from '../components/AgregarMantenimiento';
 import { FaTools } from 'react-icons/fa'
 const Mantenimiento = () => {
@@ -19,10 +21,11 @@ const Mantenimiento = () => {
                 background: '#758E75',
                 // height: 700,
                 width: 700,
-                color: 'white' 
+                color: 'white',
+                marginTop: 20 
             }}>
-      <Text><FaTools/>   Mantenimiento de Computo </Text>
-      <hr/>
+      <Text size={19}><FaTools/>   Mantenimiento de Computo </Text>
+      <Divider color={"black"} size={2}/>
             <AgregarMantenimiento recargar = {cargarData}/>
               <Space h="lg" />
               <Card.Section style={{ 
@@ -34,6 +37,11 @@ const Mantenimiento = () => {
               }}>   
                 <TablaMantenimiento reload={reload} />
                 </Card.Section>
+                <Group position='right' >
+            <ActionIcon variant="light" size={35} color="dark">
+                <BsPencilSquare/>
+            </ActionIcon>
+            </Group>
               </Card>
           </Container>
         

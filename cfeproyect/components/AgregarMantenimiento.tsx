@@ -71,7 +71,9 @@ function validacion() {
 
 
   return (
-      <Grid>
+      <Grid style={{ 
+        marginTop: 10 ,
+        }}>
         <Grid.Col span={4}>
         {/* <Select
             label="No.Inventario"
