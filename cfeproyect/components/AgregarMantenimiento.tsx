@@ -80,17 +80,18 @@ function validacion() {
             value={noInventario} onChange={setNoInventario}
           /> */}
             <TextInput
-              label="No. Inventario"
+              label="No. Inventario:"
               withAsterisk
               value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
             />
 
             <TextInput
-            label="CentroCoste"
-           // disabled
+            // disabled
+            label="No. Serie:"
             withAsterisk
-            value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
+            value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
           />
+            
            {/* <Select
             label="Proceso"
             withAsterisk
@@ -99,26 +100,33 @@ function validacion() {
           /> */}
           </Grid.Col>
         <Grid.Col span={4}>
-        <TextInput
-        //disabled
+            <TextInput
+            label="Centro Coste:"
+            // disabled
+            withAsterisk
+            value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
+            />
+            <TextInput
+            //disabled
             label="RPE"
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
-          />
-     <TextInput
-       // disabled
-            label="Numero Serie"
+            />
+
+            <TextInput
+            label="Fecha:"
+            // disabled
             withAsterisk
-            value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
-          />
+            />
+     
          
-             <DatePicker
-      placeholder="Seleccione una fecha"
-      label="Fecha"
-      inputFormat="DD/MM/YYYY"
-      value={fecha}
-          
-    />
+            {/* <DatePicker
+            placeholder="Seleccione una fecha"
+            label="Fecha"
+            inputFormat="DD/MM/YYYY"
+            value={fecha}
+                
+          /> */}
    </Grid.Col>
 
         <Grid.Col span={4}>

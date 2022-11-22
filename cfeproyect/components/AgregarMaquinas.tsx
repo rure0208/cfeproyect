@@ -93,12 +93,12 @@ function validacion() {
     <Grid>
       <Grid.Col span={4}>
         <TextInput
-          label="No. Inventario"
+          label="No. Inventario:"
           withAsterisk
           value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
         />
         <TextInput
-          label="Modelo"
+          label="Modelo:"
           withAsterisk
           value={modelo} onChange={(event) => setModelo(event.currentTarget.value)}
         />
@@ -109,7 +109,7 @@ function validacion() {
             value={rpe} onChange={setrpe}
           /> */}
         <TextInput
-          label="RPE"
+          label="RPE:"
           value={rpe} onChange={(event) => setrpe(event.currentTarget.value)}
           withAsterisk
         />
@@ -117,7 +117,7 @@ function validacion() {
 
       <Grid.Col span={4}>
         <TextInput
-          label="Centro de coste"
+          label="Centro de coste:"
           withAsterisk
           value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
         />

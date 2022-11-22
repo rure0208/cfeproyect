@@ -14,15 +14,15 @@ const AF13 = () => {
                 marginTop: 4,
                 marginLeft: '17%',  
             }}>
-            <Text color={'black'}>Numero Inventario:</Text>
+            <Text color={'black'}>No. Inventario:</Text>
             <TextInput
             style={{ 
-                width: 200,
+                width: 180,
              
             }}
-                placeholder="Buscar"
+                // placeholder="Buscar"
                 mb="sm"
-                icon={<BiSearch></BiSearch>}
+                // icon={<BiSearch></BiSearch>}
             />
             <ActionIcon variant="light">
                 <HiOutlineSearchCircle/>

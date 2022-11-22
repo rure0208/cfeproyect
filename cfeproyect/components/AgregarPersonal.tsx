@@ -51,24 +51,24 @@ function validacion() {
     <Grid>
       <Grid.Col span={4}>
         <TextInput
-          label="RPE"
+          label="Ingresa RPE:"
           value={rpe} onChange={(event) => setrpe(event.currentTarget.value)}
           withAsterisk
         />
         <TextInput
-          label="Puesto"
-          value={puesto} onChange={(event) => setpuesto(event.currentTarget.value)}
+          label="Nombre:"
+          value={nombre} onChange={(event) => setnombre(event.currentTarget.value)}
           withAsterisk
         />
       </Grid.Col>
       <Grid.Col span={4}>
         <TextInput
-          label="Nombre"
-          value={nombre} onChange={(event) => setnombre(event.currentTarget.value)}
+          label="Puesto:"
+          value={puesto} onChange={(event) => setpuesto(event.currentTarget.value)}
           withAsterisk
         />
         <TextInput
-          label="Area"
+          label="Area:"
           value={area} onChange={(event) => setarea(event.currentTarget.value)}
           withAsterisk
         />

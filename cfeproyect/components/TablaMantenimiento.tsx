@@ -70,8 +70,8 @@ useEffect(() => {
   const rows = usuarios && usuarios.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
-      <td>{d.attributes.centroCoste}</td>
       <td>{d.attributes.noSerie}</td>
+      <td>{d.attributes.centroCoste}</td>
       <td>{d.attributes.rpe}</td>
       <td>{d.attributes.fecha}</td>
       {/* <td>{d.attributes.proceso}</td> */}
@@ -110,8 +110,8 @@ useEffect(() => {
         <thead>
           <tr>
             <th>No Inventario</th>
-            <th>Centro de coste</th>
             <th>No.Serie</th>
+            <th>Centro Coste</th>
             <th>RPE</th>
             <th>Fecha</th>
             {/* <th>Estatus</th> */}

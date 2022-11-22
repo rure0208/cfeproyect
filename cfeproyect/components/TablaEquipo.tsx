@@ -103,8 +103,8 @@ useEffect(() => {
           <tr>
             <th>No Inventario</th>
             <th>Modelo</th>
-            <th>Centro de coste</th>
-            <th>No.Serie</th>
+            <th>Centro Coste</th>
+            <th>No. Serie</th>
             <th>RPE</th>
 
           </tr>
