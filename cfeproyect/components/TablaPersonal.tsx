@@ -1,7 +1,7 @@
 import React from 'react'
 import api from '../services/api';
 import { useState, useEffect } from 'react'
-import { Table,  Group, ScrollArea, TextInput, ActionIcon } from '@mantine/core';
+import { Table,  Group, ScrollArea, TextInput, ActionIcon,Divider } from '@mantine/core';
 import { GoTrashcan } from 'react-icons/go'
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
@@ -72,7 +72,8 @@ const TablaPersonal = (props) => {
 
     return (
         <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}>
-            <Group>
+            <Group style={{ 
+                    height: 40}}>
                 <TextInput
                     style={{
                         width: 200,
@@ -85,11 +86,14 @@ const TablaPersonal = (props) => {
                     mb="sm"
                     icon={<BiSearch></BiSearch>}
                 />
-                <ActionIcon>
+                <ActionIcon variant="light" size={23} color="dark" style={{ 
+                    marginLeft: 350,
+                    marginBottom: 5,
+                    width: 40}}>
                     <HiOutlineSearchCircle />
                 </ActionIcon>
             </Group>
-
+            <Divider color={"black"} size={1}/>
             <Table horizontalSpacing="xl" verticalSpacing="md" fontSize="xs">
                 <thead>
                     <tr>

@@ -38,10 +38,10 @@ const Personal = () => {
                 color: 'white',
                 marginTop: 20
             }}>
-            <Text size={19}><AiOutlineUserAdd/>   Agregar Personal</Text>
+            <Text size={19}><AiOutlineUserAdd/>Agregar Personal</Text>
             <Divider color={"black"} size={2}/>
             <AgregarPersonal recargar = {cargarData}/>
-            
+  
             <Space h="lg" />
             <Card.Section style={{ 
                 background: '#D9D9D9',
@@ -50,7 +50,7 @@ const Personal = () => {
                 marginLeft: 20,
                 marginBottom: 4
             }}>
-              <TablaPersonal reload={reload} />
+            <TablaPersonal reload={reload} />
             </Card.Section>
             <Space/>
             <Group position='right' style={{ 

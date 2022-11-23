@@ -12,19 +12,20 @@ const AF13 = () => {
     <AppShel tituloPagina='AF13'>
     <Group style={{ 
                 marginTop: 4,
-                marginLeft: '17%',  
+                marginLeft: '17%',
             }}>
             <Text color={'black'}>No. Inventario:</Text>
             <TextInput
             style={{ 
-                width: 180,
-             
+                width: 180,         
             }}
                 // placeholder="Buscar"
                 mb="sm"
                 // icon={<BiSearch></BiSearch>}
             />
-            <ActionIcon variant="light">
+            <ActionIcon variant="light" color="dark"  size= {20} style={{ 
+                    marginBottom: 5,
+                    width: 40}}>
                 <HiOutlineSearchCircle/>
             </ActionIcon>
         </Group>
@@ -47,7 +48,9 @@ const AF13 = () => {
             }}>
 
             </Card.Section>
-            <Group position='right' >
+            <Group position='right' style={{ 
+                marginTop: 6,
+                marginRight: 26,}} >
             <ActionIcon variant="light" size={35} color="dark">
                 <VscFilePdf/>
             </ActionIcon>

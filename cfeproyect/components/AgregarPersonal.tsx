@@ -50,6 +50,7 @@ function validacion() {
   return (
     <Grid style={{ 
       marginTop: 10 ,
+      marginLeft: 14,
       }}>
       <Grid.Col span={4}>
         <TextInput
@@ -79,7 +80,9 @@ function validacion() {
         <Space h="lg" />
         <Space h="lg" />
         <Space h="lg" />
-        <ActionIcon variant="light" size={22} color="dark" onClick={createPost}>
+        <ActionIcon variant="light" size={22} color="dark" onClick={createPost} style={{ 
+                    marginBottom: 5,
+                    width: 40}}>
                 <FcPlus/>
         </ActionIcon>
         {/* <Button onClick={createPost}>agregar</Button> */}

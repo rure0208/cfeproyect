@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Table, Text, ActionIcon, ScrollArea, Group, TextInput } from '@mantine/core';
+import { Table, Text, ActionIcon, ScrollArea, Group, TextInput, Divider } from '@mantine/core';
 import api from '../services/api';
 import Notification from './NotificationToast';
 import { BiSearch } from 'react-icons/bi'
@@ -80,7 +80,8 @@ useEffect(() => {
 
   return (
     <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}>
-      <Group>
+      <Group style={{ 
+                    height: 40}}>
         <TextInput
           style={{
             width: 200,
@@ -93,11 +94,15 @@ useEffect(() => {
           mb="sm"
           icon={<BiSearch></BiSearch>}
         />
-        <ActionIcon>
+
+        <ActionIcon variant="light" size={23} color="dark" style={{ 
+                    marginLeft: 350,
+                    marginBottom: 5,
+                    width: 40}}>
           <HiOutlineSearchCircle />
         </ActionIcon>
       </Group>
-
+      <Divider color={"black"} size={1}/>
       <Table>
         <thead>
           <tr>
