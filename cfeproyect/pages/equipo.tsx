@@ -33,13 +33,15 @@ const Equipo = () => {
               <Card.Section style={{ 
                 background: '#D9D9D9',
                 // height: 700,
-                width: 600, 
-                marginLeft: 40,
+                width: 630, 
+                marginLeft: 20,
                 marginBottom: 4,
               }}>  
                 <TablaEquipo reload={reload} />
               </Card.Section>
-              <Group position='right' >
+              <Group position='right' style={{ 
+                marginTop: 6,
+                marginRight: 19, }}>
             <ActionIcon variant="light" size={35} color="dark">
                 <BsPencilSquare/>
             </ActionIcon>
