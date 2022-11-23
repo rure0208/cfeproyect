@@ -4,13 +4,13 @@ import client from './client';
 const api = {
 // consulta todas las maquinas de la bd
     listaDeMaquinas: async () => {
-        return await client.GET('/api/maquinas');
+        return await client.GET('/api/maquinas?pagination[pageSize]=200');
     },
     listaDePersonal: async () => {
-        return await client.GET('/api/personals');
+        return await client.GET('/api/personals?pagination[pageSize]=200');
     },
     listaDeMantenimiento: async () => {
-        return await client.GET('/api/mantenimientos');
+        return await client.GET('/api/mantenimientos?pagination[pageSize]=200');
     },
     agregarPersonal: async (body) =>{
         return await client.POST('/api/personals', body);

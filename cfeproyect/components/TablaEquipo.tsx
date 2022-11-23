@@ -5,11 +5,13 @@ import Notification from './NotificationToast';
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
 import { GoTrashcan } from 'react-icons/go'
+import axios from 'axios';
 
 const TablaEquipo = (props) => {
   const [data, setData] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [buscar, setBuscar] = useState("");
+  const [pageIndex,setPageIndex]=useState(1);
   useEffect(() => {
     init();
 }, [])
@@ -18,11 +20,12 @@ useEffect(() => {
     init();
 }, [props.reload])
 
-
   async function init() {
+
     const list = await api.listaDeMaquinas();
     setData(list.data);
     setUsuarios(list.data);
+ 
   }
   const handleChange = e => {
     setBuscar(e.target.value);
@@ -79,7 +82,7 @@ useEffect(() => {
   ));
 
   return (
-    <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}>
+    <ScrollArea style={{ height: 400 }} type="always" scrollbarSize={18}>
       <Group style={{ 
                     height: 40}}>
         <TextInput
