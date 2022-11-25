@@ -41,19 +41,6 @@ useEffect(() => {
     });
     setUsuarios(resultadosBusqueda);
   }
-  /* async function deletePost(id) {
-     const baseURL = "http://localhost:1337/api/mantenimientos/";
-     console.log(id);
-     axios.delete(baseURL + id)
-       .then(function (response) {
-         console.log(response);
-       })
-       .catch(function (error) {
-         console.log(error);
-       });
-     location.reload();
-   }
-   */
 
   async function deletePost(id: String) {
     try {
@@ -74,7 +61,7 @@ useEffect(() => {
       <td>{d.attributes.centroCoste}</td>
       <td>{d.attributes.rpe}</td>
       <td>{d.attributes.fecha}</td>
-      {/* <td>{d.attributes.proceso}</td> */}
+      <td>{d.attributes.proceso}</td>
       <td>
 
 
@@ -119,7 +106,7 @@ useEffect(() => {
             <th>Centro Coste</th>
             <th>RPE</th>
             <th>Fecha</th>
-            {/* <th>Estatus</th> */}
+            <th>Estatus</th>
             <th></th>
           </tr>
         </thead>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { Grid, TextInput, Space, Button, Group,Select,ActionIcon } from '@mantine/core'
+import { Grid, TextInput, Space, Card,Button, Group,Select,ActionIcon } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 
 import { useState,useEffect } from 'react';
@@ -17,6 +17,19 @@ const AgregarMantenimiento = (props) => {
   const [noSerie, setNoSerie] = useState('');
   const [rpe, setRpe] = useState('');
   const [fecha, setFecha] = useState(new Date());
+  const [usuarios, setUsuarios] = useState([]);
+
+
+
+useEffect(() => {
+    init();
+}, [props.reload])
+
+  async function init() {
+    const list = await api.listaDeMaquinas();
+    setDataw(list.data);
+  }
+
 
   async function createPost() {
 
@@ -30,6 +43,7 @@ const AgregarMantenimiento = (props) => {
                noSerie: noSerie,
                rpe: rpe,
                fecha:fecha,
+               proceso:proceso,
              }
       }
     try {
@@ -56,80 +70,72 @@ function validacion() {
   return noInventario != '' && centroCoste != '' && noSerie != '' && rpe != '' ;
 }
 
-  
-
-
-
-
-
   var task_noInv = dataw.map((d)=>{
      return(d.attributes.noInventario
       )
       
   })
  
-
-
   return (
       <Grid style={{ 
         marginTop: 10 ,
         marginLeft: 14
         }}>
         <Grid.Col span={4}>
-        {/* <Select
+
+        <Select
             label="No.Inventario"
             withAsterisk
+            searchable clearable
             data={task_noInv}
             value={noInventario} onChange={setNoInventario}
-          /> */}
-            <TextInput
+          />
+         {
+         /* <TextInput
               label="No. Inventario:"
               withAsterisk
               value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
-            />
-
+            /> */}
             <TextInput
-            // disabled
+             disabled
             label="No. Serie:"
             withAsterisk
             value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
           />
             
-           {/* <Select
+           <Select
             label="Proceso"
             withAsterisk
             data={["proceso","terminado"]}
             value={proceso} onChange={setProceso}
-          /> */}
+          />
           </Grid.Col>
         <Grid.Col span={4}>
             <TextInput
             label="Centro Coste:"
-            // disabled
+            disabled
             withAsterisk
             value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
             />
             <TextInput
-            //disabled
+            disabled
             label="RPE"
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
             />
 
-            <TextInput
+            {/* <TextInput
             label="Fecha:"
             // disabled
             withAsterisk
-            />
-     
-         
-            {/* <DatePicker
+            /> */}
+            <DatePicker
             placeholder="Seleccione una fecha"
             label="Fecha"
             inputFormat="DD/MM/YYYY"
             value={fecha}
                 
-          /> */}
+          />
    </Grid.Col>
 
         <Grid.Col span={4}>
@@ -141,8 +147,7 @@ function validacion() {
                     width: 40}}>
                 <FcPlus/>
           </ActionIcon>
-          {/* <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button> */}
-        </Grid.Col>
+          </Grid.Col>
       </Grid>
   
   )

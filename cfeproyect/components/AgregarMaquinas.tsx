@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { Grid, TextInput, Space, ActionIcon } from '@mantine/core'
+import { Grid, TextInput, Space, ActionIcon ,Select} from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
 import axios from 'axios';
 import { useState } from 'react'
@@ -7,41 +7,22 @@ import api from '../services/api';
 import Notification from './NotificationToast';
 const AgregarMaquinas = (props) => {
 
-  // const [dataw, setDataw] = useState([]);
+  const [dataw, setDataw] = useState([]);
   const [noInventario, setNoInventario] = useState('');
   const [modelo, setModelo] = useState('');
   const [rpe, setrpe] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
   const [noSerie, setNoSerie] = useState('');
-  // const baseURL = "http://localhost:1337/api/maquinas";
-  // useEffect(() => {
-  //   init();
-  // }, [])
 
-  // async function init() {
-  //   const list = await api.listaDePersonal();
-  //   setDataw(list.data);
-  // }
-  // async function createPost() {
-  //   await axios.post(baseURL, {
-  //     data: {
-  //       noInventario: noInventario,
-  //       modelo: modelo,
-  //       centroCoste: centroCoste,
-  //       rpe: rpe,
-  //       noSerie: noSerie
-  //     }
-  //   })
-  //     .then(function (response) {
-  //       Notification.success("Máquinas", "Se agregó correctamente");
-       
-  //     })
-  //     .catch(function (error) {
-  //       Notification.error("Máquinas", "No se ha podido agregar");
-  //       console.log(error);
-  //     });
-  //   location.reload();
-  // }
+  useEffect(() => {
+    init();
+}, [props.reload])
+
+  async function init() {
+    const list = await api.listaDePersonal();
+    setDataw(list.data);
+  }
+
   async function createPost() {
 
     if(!validacion()){
@@ -81,12 +62,12 @@ function validacion() {
 
   
 
-  // var task_rpe = dataw.map((d) => {
-  //   return (
-  //     d.attributes.rpe
-  //   )
+   var task_rpe = dataw.map((d) => {
+     return (
+       d.attributes.rpe
+     )
 
-  // })
+   })
   
 
   return (
@@ -106,9 +87,11 @@ function validacion() {
           value={modelo} onChange={(event) => setModelo(event.currentTarget.value)}
         />
         {/* <Select
+       
             label="RPE"
             withAsterisk
             data={task_rpe}
+            searchable
             value={rpe} onChange={setrpe}
           /> */}
         <TextInput
