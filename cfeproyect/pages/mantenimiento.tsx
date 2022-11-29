@@ -9,9 +9,17 @@ import AgregarMantenimiento from '../components/AgregarMantenimiento';
 import { FaTools } from 'react-icons/fa'
 const Mantenimiento = () => {
   const [reload, setReload] = useState(false);
-  
+  const [update,setUpdate] = useState({});
   function cargarData(){
     setReload(!reload);  
+  }
+  
+  function actualizarData(mantenimiento : Object) {
+    setUpdate(mantenimiento);
+  }
+
+  function clean(){
+    setUpdate({});
   }
   return (
     <Layout tituloPestaña='Mantenimiento'>
@@ -26,7 +34,7 @@ const Mantenimiento = () => {
             }}>
       <Text size={19}><FaTools/>   Mantenimiento de Computo </Text>
       <Divider color={"black"} size={2}/>
-            <AgregarMantenimiento recargar = {cargarData}/>
+            <AgregarMantenimiento recargar = {cargarData} actualizando = {update} limpiar = {clean} />
               <Space h="lg" />
               <Card.Section style={{ 
                 background: '#D9D9D9',
@@ -35,7 +43,7 @@ const Mantenimiento = () => {
                 marginLeft: 20,
                 marginBottom: 4
               }}>   
-                <TablaMantenimiento reload={reload} />
+                <TablaMantenimiento  reload={reload}  actualizar = {actualizarData}/>
                 </Card.Section>
                 <Group position='right' style={{ 
                 marginTop: 6,

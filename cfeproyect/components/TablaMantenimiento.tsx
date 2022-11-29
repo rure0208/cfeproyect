@@ -5,6 +5,7 @@ import Notification from './NotificationToast';
 import { GoTrashcan } from 'react-icons/go'
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
+import { BsPencilSquare } from 'react-icons/bs'
 
 const TablaMantenimiento = (props) => {
   const [data, setData] = useState([]);
@@ -22,7 +23,7 @@ useEffect(() => {
 
   async function init() {
     const list = await api.listaDeMantenimiento();
-    const list2 = await api.listaDePersonal();
+    const list2 = await api.listaDeMaquinas();
     setUsuarios(list.data);
     setData(list.data);
   }
@@ -51,7 +52,10 @@ useEffect(() => {
       console.error(error);
     }
   }
-  
+  function updatePost(post: Object){
+    props.actualizar(post);
+}
+
   const rows = usuarios && usuarios.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
@@ -63,9 +67,14 @@ useEffect(() => {
       <td>
 
 
-        <ActionIcon radius="xs" size="xs" >
-          <GoTrashcan onClick={(id) => deletePost(d.id)} />
-        </ActionIcon>
+      <Group>
+                <ActionIcon radius="xs" size="xs">
+                    <BsPencilSquare onClick={(id) => updatePost(d)}/>
+                </ActionIcon>
+                    <ActionIcon radius="xs" size="xs" >
+                        <GoTrashcan onClick={(id) => deletePost(d.id)} />
+                    </ActionIcon>
+                </Group>
 
       </td>
     </tr>

@@ -10,7 +10,7 @@ export default class Client {
 
          return {
              headers: {
-                 'Authorization': `Bearer ${token}`,
+                 'Authorization': `9b802 ${token}`,
                  'Content-Type': 'application/json'
              }
          }

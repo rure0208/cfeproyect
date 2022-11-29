@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react'
 import { Grid, TextInput, Space, ActionIcon ,Select} from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
-import axios from 'axios';
 import { useState } from 'react'
 import api from '../services/api';
 import Notification from './NotificationToast';
+import {IoIosCheckmarkCircle, IoIosCloseCircle} from 'react-icons/io'
 const AgregarMaquinas = (props) => {
 
   const [dataw, setDataw] = useState([]);
@@ -13,11 +13,20 @@ const AgregarMaquinas = (props) => {
   const [rpe, setrpe] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
   const [noSerie, setNoSerie] = useState('');
+  const [id, setId] = useState();
+  const [editando, setEditando] = useState(false);
 
   useEffect(() => {
+    if (props.actualizando.attributes == undefined) return;
+    setId(props.actualizando.id);
+    setNoInventario(props.actualizando.attributes.noInventario);
+    setModelo(props.actualizando.attributes.modelo);
+    setCentroCoste(props.actualizando.attributes.centroCoste);
+    setrpe(props.actualizando.attributes.rpe);
+    setNoSerie(props.actualizando.attributes.noSerie);
+    setEditando(true);
     init();
-}, [props.reload])
-
+  }, [props.actualizando])
   async function init() {
     const list = await api.listaDePersonal();
     setDataw(list.data);
@@ -47,7 +56,34 @@ const AgregarMaquinas = (props) => {
       console.error(error);
     }
   }
-  
+  async function updatePost() {
+    const body = {
+      data: {
+        noInventario: noInventario,
+        modelo: modelo,
+        centroCoste: centroCoste,
+        rpe: rpe,
+        noSerie: noSerie
+      }
+    }
+    try {
+      await api.actualizarMaquinas(id,body);
+      limpiarFormulario();
+      props.limpiar();
+      setEditando(false);
+      props.recargar();
+      Notification.success("Maquina", "Maquina actualizado correctamente");
+    } catch (error) {
+      Notification.error("Maquina", "Maquina no actualizado");
+      console.error(error);
+    }
+  }
+  function cancelUpdate(){
+    limpiarFormulario();
+    props.limpiar();
+    setEditando(false);
+  }
+
 function limpiarFormulario(){
   setNoInventario('');
   setModelo('');
@@ -118,13 +154,32 @@ function validacion() {
         <Space h="lg" />
         <Space h="lg" />
         <Space h="lg" />
-
-        <ActionIcon variant="light" size={22} color="dark" onClick={createPost} style={{ 
-                    marginBottom: 5,
-                    width: 40}}>
-          <FcPlus />
-        </ActionIcon>
-        {/* <Button sx={(theme) => ({ backgroundColor: '#D9D9D9', '&:hover': { backgroundColor: theme.fn.darken('#D9D9D9', 0.05), }, })} size="md" compact leftIcon={<FcPlus></FcPlus>} onClick={createPost}></Button> */}
+        {editando ?
+          (
+            <div>
+          <ActionIcon variant="light" size={22} onClick={updatePost} color="green"  style={{
+            marginBottom: 5,
+            width: 40
+          }}>
+            <IoIosCheckmarkCircle />
+          </ActionIcon>
+          <ActionIcon variant="light" size={22} onClick={cancelUpdate} color="red" style={{
+            marginBottom: 5,
+            width: 40
+          }}>
+            <IoIosCloseCircle />
+          </ActionIcon>
+          </div>
+          )
+          :
+          (<ActionIcon variant="light" size={22} color="dark" onClick={createPost} style={{
+            marginBottom: 5,
+            width: 40
+          }}>
+            <FcPlus />
+          </ActionIcon>)
+        }
+        {/* <Button onClick={createPost}>agregar</Button> */}
       </Grid.Col>
     </Grid>
 

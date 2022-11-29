@@ -33,6 +33,12 @@ const api = {
     actualizarPersonal: async (id,body) => {
         return await client.UPDATE('/api/personals/' + id,body);
     },
+    actualizarMaquinas: async (id,body) => {
+        return await client.UPDATE('/api/maquinas/' + id,body);
+    },
+    actualizarMantenimiento: async (id,body) => {
+        return await client.UPDATE('/api/mantenimientos/' + id,body);
+    },
 }
 
 export default api;

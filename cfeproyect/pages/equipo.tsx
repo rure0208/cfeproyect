@@ -10,9 +10,17 @@ import { RiComputerFill } from 'react-icons/ri'
 const Equipo = () => {
 
   const [reload, setReload] = useState(false);
+  const [update,setUpdate] = useState({});
   
   function cargarData(){
     setReload(!reload);  
+  }
+  function actualizarData(equipo : Object) {
+    setUpdate(equipo);
+  }
+
+  function clean(){
+    setUpdate({});
   }
   return (
     <Layout tituloPestaña='Maquinas'>
@@ -28,7 +36,7 @@ const Equipo = () => {
               <Text size={19}><RiComputerFill/>Agregar Maquina</Text>
               <Divider color={"black"} size={2}/>
               
-              <AgregarMaquinas recargar = {cargarData}/>
+              <AgregarMaquinas recargar = {cargarData} actualizando = {update} limpiar = {clean} />
               <Space h="lg" />
               <Card.Section style={{ 
                 background: '#D9D9D9',
@@ -37,7 +45,7 @@ const Equipo = () => {
                 marginLeft: 20,
                 marginBottom: 4,
               }}>  
-                <TablaEquipo reload={reload} />
+                <TablaEquipo reload={reload}  actualizar = {actualizarData}/>
               </Card.Section>
               <Group position='right' style={{ 
                 marginTop: 6,

@@ -1,7 +1,7 @@
 import React from 'react'
-import { Grid, TextInput, Space, Card,Button, Group,Select,ActionIcon } from '@mantine/core'
+import { Grid, TextInput, Space, Group,Select,ActionIcon } from '@mantine/core'
 import { FcPlus } from 'react-icons/fc'
-
+import {IoIosCheckmarkCircle, IoIosCloseCircle} from 'react-icons/io'
 import { useState,useEffect } from 'react';
 import { DatePicker } from '@mantine/dates';
 import axios from 'axios';
@@ -18,17 +18,45 @@ const AgregarMantenimiento = (props) => {
   const [rpe, setRpe] = useState('');
   const [fecha, setFecha] = useState(new Date());
   const [usuarios, setUsuarios] = useState([]);
+  const [id, setId] = useState();
+  const [editando, setEditando] = useState(false);
+  const [buscar, setBuscar] = useState("");
 
 
 
 useEffect(() => {
-    init();
-}, [props.reload])
+  init();
+  if (props.actualizando.attributes == undefined) return;
+    setId(props.actualizando.id);
+    setNoInventario(props.actualizando.attributes.noInventario);
+    setCentroCoste(props.actualizando.attributes.centroCoste);
+    setNoSerie(props.actualizando.attributes.noSerie);
+    setRpe(props.actualizando.attributes.rpe);
+    setFecha(props.actualizando.attributes.fecha);
+    setProceso(props.actualizando.attributes.proceso);
+    setEditando(true);
+ 
+}, [props.actualizando])
 
   async function init() {
     const list = await api.listaDeMaquinas();
     setDataw(list.data);
+    setUsuarios(list.data);
   }
+  const handleChange = e => {
+    setBuscar(e.target.value);
+    filtrar(e.target.value);
+  }
+  const filtrar = (terminoBusqueda) => {
+    var resultadosBusqueda = dataw.filter((elemento) => {
+      if (elemento.attributes.noInventario.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+      ) {
+        return elemento;
+      }
+    });
+    setUsuarios(resultadosBusqueda);
+  }
+
 
 
   async function createPost() {
@@ -56,7 +84,37 @@ useEffect(() => {
       console.error(error);
     }
   }
-  
+
+  async function updatePost() {
+    const body = {
+      data: {
+        noInventario: noInventario,
+        centroCoste: centroCoste,
+        noSerie: noSerie,
+        rpe: rpe,
+        fecha:fecha,
+        proceso:proceso,
+      }
+    }
+    try {
+      await api.actualizarMantenimiento(id,body);
+      limpiarFormulario();
+      props.limpiar();
+      setEditando(false);
+      props.recargar();
+      Notification.success("Usuarios", "Usuario actualizado correctamente");
+    } catch (error) {
+      Notification.error("Usuarios", "Usuario no actualizado");
+      console.error(error);
+    }
+  }
+
+  function cancelUpdate(){
+    limpiarFormulario();
+    props.limpiar();
+    setEditando(false);
+  }
+
 function limpiarFormulario(){
   setNoInventario('');
   setCentroCoste('');
@@ -74,6 +132,7 @@ function validacion() {
      return(d.attributes.noInventario
       ) 
   })
+  
  
   return (
       <Grid style={{ 
@@ -96,7 +155,7 @@ function validacion() {
               value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
             /> */}
             <TextInput
-             disabled
+   
             label="No. Serie:"
             withAsterisk
             value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
@@ -112,12 +171,12 @@ function validacion() {
         <Grid.Col span={4}>
             <TextInput
             label="Centro Coste:"
-            disabled
+   
             withAsterisk
             value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
             />
             <TextInput
-            disabled
+   
             label="RPE"
             withAsterisk
             value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
@@ -137,16 +196,37 @@ function validacion() {
           />
    </Grid.Col>
 
-        <Grid.Col span={4}>
-          <Space h="lg" />
-          <Space h="lg" />
-          <Space h="lg" />
-          <ActionIcon variant="light" size={22} color="dark" onClick={createPost} style={{ 
-                    marginBottom: 5,
-                    width: 40}}>
-                <FcPlus/>
+   <Grid.Col span={4}>
+        <Space h="lg" />
+        <Space h="lg" />
+        <Space h="lg" />
+        {editando ?
+          (
+            <div>
+          <ActionIcon variant="light" size={22} onClick={updatePost} color="green"  style={{
+            marginBottom: 5,
+            width: 40
+          }}>
+            <IoIosCheckmarkCircle />
           </ActionIcon>
-          </Grid.Col>
+          <ActionIcon variant="light" size={22} onClick={cancelUpdate} color="red" style={{
+            marginBottom: 5,
+            width: 40
+          }}>
+            <IoIosCloseCircle />
+          </ActionIcon>
+          </div>
+          )
+          :
+          (<ActionIcon variant="light" size={22} color="dark" onClick={createPost} style={{
+            marginBottom: 5,
+            width: 40
+          }}>
+            <FcPlus />
+          </ActionIcon>)
+        }
+        {/* <Button onClick={createPost}>agregar</Button> */}
+      </Grid.Col>
       </Grid>
   
   )

@@ -142,7 +142,7 @@ const AgregarPersonal = (props) => {
           </div>
           )
           :
-          (<ActionIcon variant="light" size={22} onClick={createPost} style={{
+          (<ActionIcon variant="light" size={22} color="dark" onClick={createPost} style={{
             marginBottom: 5,
             width: 40
           }}>

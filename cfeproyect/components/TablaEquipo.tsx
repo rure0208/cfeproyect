@@ -6,12 +6,13 @@ import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
 import { GoTrashcan } from 'react-icons/go'
 import axios from 'axios';
+import { BsPencilSquare } from 'react-icons/bs'
 
 const TablaEquipo = (props) => {
   const [data, setData] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
   const [buscar, setBuscar] = useState("");
-  const [pageIndex,setPageIndex]=useState(1);
+
   useEffect(() => {
     init();
 }, [])
@@ -19,6 +20,7 @@ const TablaEquipo = (props) => {
 useEffect(() => {
     init();
 }, [props.reload])
+
 
   async function init() {
 
@@ -43,17 +45,6 @@ useEffect(() => {
   }
 
   async function deletePost(id: String) {
-    /* const baseURL = "http://localhost:1337/api/maquinas/";
-     console.log(id);
-     axios.delete(baseURL + id)
- 
-       .then(function (response) {
-         console.log(response);
-       })
-       .catch(function (error) {
-         console.log(error);
-       });*/
-
     try {
       await api.removerMaquinas(id);
       Notification.success("Máquinas", "Se ha eliminado el usuario correctamente");
@@ -64,6 +55,11 @@ useEffect(() => {
     }
 
   }
+ 
+  function updatePost(post: Object){
+    props.actualizar(post);
+}
+
   const rows = usuarios && usuarios.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>
@@ -72,11 +68,14 @@ useEffect(() => {
       <td>{d.attributes.noSerie}</td>
       <td>{d.attributes.rpe}</td>
       <td>
-
-        <ActionIcon radius="xs" size="xs" >
-          <GoTrashcan onClick={(id) => deletePost(d.id)} />
-        </ActionIcon>
-
+              <Group>
+                <ActionIcon radius="xs" size="xs">
+                    <BsPencilSquare onClick={(id) => updatePost(d)}/>
+                </ActionIcon>
+                    <ActionIcon radius="xs" size="xs" >
+                        <GoTrashcan onClick={(id) => deletePost(d.id)} />
+                    </ActionIcon>
+                </Group>
       </td>
     </tr>
   ));
