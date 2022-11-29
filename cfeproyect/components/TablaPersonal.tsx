@@ -1,11 +1,12 @@
 import React from 'react'
 import api from '../services/api';
 import { useState, useEffect } from 'react'
-import { Table,  Group, ScrollArea, TextInput, ActionIcon,Divider } from '@mantine/core';
+import { Table,  Group, ScrollArea, TextInput, ActionIcon,Divider} from '@mantine/core';
 import { GoTrashcan } from 'react-icons/go'
 import { BiSearch } from 'react-icons/bi'
 import { HiOutlineSearchCircle } from 'react-icons/hi'
 import Notification from './NotificationToast';
+import { BsPencilSquare } from 'react-icons/bs'
 
 const TablaPersonal = (props) => {
     const [data, setData] = useState([]);
@@ -54,6 +55,11 @@ const TablaPersonal = (props) => {
             console.error(error);
         }
     }
+
+    function updatePost(post: Object){
+        props.actualizar(post);
+    }
+
     const rows = usuarios && usuarios.map((d) => (
         <tr key={d.id}>
             <td>{d.attributes.rpe}</td>
@@ -61,10 +67,14 @@ const TablaPersonal = (props) => {
             <td>{d.attributes.puesto}</td>
             <td>{d.attributes.area}</td>
             <td>
-
-                <ActionIcon radius="xs" size="xs" >
-                    <GoTrashcan onClick={(id) => deletePost(d.id)} />
+                <Group>
+                <ActionIcon radius="xs" size="xs">
+                    <BsPencilSquare onClick={(id) => updatePost(d)}/>
                 </ActionIcon>
+                    <ActionIcon radius="xs" size="xs" >
+                        <GoTrashcan onClick={(id) => deletePost(d.id)} />
+                    </ActionIcon>
+                </Group>
 
             </td>
         </tr>

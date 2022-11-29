@@ -26,7 +26,6 @@ useEffect(() => {
     setUsuarios(list.data);
     setData(list.data);
   }
-
   const handleChange = e => {
     setBuscar(e.target.value);
     filtrar(e.target.value);
@@ -51,9 +50,8 @@ useEffect(() => {
       Notification.error("Mantenimieto", "No se ha podido eliminar");
       console.error(error);
     }
-
   }
-
+  
   const rows = usuarios && usuarios.map((d) => (
     <tr key={d.id}>
       <td>{d.attributes.noInventario}</td>

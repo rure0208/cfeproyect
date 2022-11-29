@@ -22,9 +22,18 @@ import { AiOutlineUserAdd } from 'react-icons/ai'
 const Personal = () => {
   // const { classes } = useStyles();
   const [reload, setReload] = useState(false);
-  
+  const [update,setUpdate] = useState({});
+
   function cargarData(){
     setReload(!reload);  
+  }
+
+  function actualizarData(personal : Object) {
+    setUpdate(personal);
+  }
+
+  function clean(){
+    setUpdate({});
   }
 
   return (
@@ -40,7 +49,7 @@ const Personal = () => {
             }}>
             <Text size={19}><AiOutlineUserAdd/>Agregar Personal</Text>
             <Divider color={"black"} size={2}/>
-            <AgregarPersonal recargar = {cargarData}/>
+            <AgregarPersonal recargar = {cargarData} actualizando = {update} limpiar = {clean} />
   
             <Space h="lg" />
             <Card.Section style={{ 
@@ -50,7 +59,7 @@ const Personal = () => {
                 marginLeft: 20,
                 marginBottom: 4
             }}>
-            <TablaPersonal reload={reload} />
+            <TablaPersonal reload={reload}  actualizar = {actualizarData}/>
             </Card.Section>
             <Space/>
             <Group position='right' style={{ 

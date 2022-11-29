@@ -10,7 +10,7 @@ export default class Client {
 
          return {
              headers: {
-                 'Authorization': `9b802 ${token}`,
+                 'Authorization': `Bearer ${token}`,
                  'Content-Type': 'application/json'
              }
          }
@@ -23,6 +23,9 @@ export default class Client {
     }
     static async DELETE(url, body) {
         return await (await axios.delete(this.BASE_URL + url,this.securityConfig()));
+    }
+    static async UPDATE(url, body) {
+        return await (await axios.put(this.BASE_URL + url, body, this.securityConfig())).data;
     }
 
 }

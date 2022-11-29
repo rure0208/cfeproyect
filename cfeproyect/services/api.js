@@ -29,7 +29,10 @@ const api = {
     },
     removerMantenimiento: async (id) => {
         return await client.DELETE('/api/mantenimientos/' + id);
-    }
+    },
+    actualizarPersonal: async (id,body) => {
+        return await client.UPDATE('/api/personals/' + id,body);
+    },
 }
 
 export default api;

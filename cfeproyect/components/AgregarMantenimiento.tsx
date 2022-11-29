@@ -72,8 +72,7 @@ function validacion() {
 
   var task_noInv = dataw.map((d)=>{
      return(d.attributes.noInventario
-      )
-      
+      ) 
   })
  
   return (
