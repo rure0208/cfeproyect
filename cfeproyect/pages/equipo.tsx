@@ -50,9 +50,9 @@ const Equipo = () => {
               <Group position='right' style={{ 
                 marginTop: 6,
                 marginRight: 19, }}>
-              <ActionIcon variant="light" size={35} color="dark">
+              {/* <ActionIcon variant="light" size={35} color="dark">
                 <BsPencilSquare/>
-              </ActionIcon>
+              </ActionIcon> */}
               </Group>
           </Card>
         </Container>

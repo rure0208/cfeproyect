@@ -4,18 +4,33 @@ import Link from 'next/link'
 import { BiUser, BiLock } from 'react-icons/bi'
 import { CgLogIn } from 'react-icons/cg'
 import { useForm } from '@mantine/form';
-
+import { IconAlertCircle } from '@tabler/icons';
 import Images from './Image';
+import Notification from './NotificationToast';
 
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import api from '../services/api'
 const Logeo = () => {
   const userRef=useRef("");
-  
+  const [bien, setBien] = useState('');  
   const [user, setUser] = useState('');
   const [password, setPassword] = useState('');
-  
+
+  function aprobacion(){
+    if(user=="9b802"){
+      if(password=="Comision2020"){
+      setBien("/inicio")
+      }
+      else{
+        Notification.error("Contraseña","Verifique sus Contraseña");
+      }
+    }
+    else{
+      Notification.error("Usuarios","Verifique sus Usuario");
+    }
+  }
+
   async function login(e) {
     e.preventDefault()
     try {
@@ -79,8 +94,8 @@ const Logeo = () => {
         />
         <Group position="center" mt="md" mb="xs">
           <br></br>
-          <Button leftIcon={<CgLogIn />} sx={(theme) => ({ backgroundColor: '#3F6D3F', '&:hover': { backgroundColor: theme.fn.darken('#A1C298', 0.05), }, })} type="submit" >
-            <Link href="/inicio">Iniciar Sesión</Link> 
+          <Button onClick={aprobacion} leftIcon={<CgLogIn />} sx={(theme) => ({ backgroundColor: '#3F6D3F', '&:hover': { backgroundColor: theme.fn.darken('#A1C298', 0.05), }, })}   >
+            <Link href={bien}>Iniciar Sesión</Link> 
           </Button>
         </Group>
       </Card>
