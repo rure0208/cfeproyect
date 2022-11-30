@@ -206,10 +206,25 @@ Una vez buscado el inventario y generada la plantilla del inventario en la parte
 <h2 id="tecnologias-usasdas"> Tecnologias Usadas</h2>
 
 * NextJs
+<p align="justify">NextJs es un framework JavaScript ligero de codigo abierto creado sobre React por Vercel que habilita funcionalidades como representaciones de parte del servidor y generacion de sitios web estaticos</p>
+
 * NodeJs
+<p align="justify">NodeJs es un entorno de tiempo de ejecucion en tiempo real de JavaScript, incluye todo lo necesassrio para ejecutar programas en JavaScript sin mencionar los beneficios que aporta y la solucion de muchos problemas</p>
+
 * xampp
+<p align="justify">Xampp es una herramienta de desarrollo que permite probar desarrollos web basados en PHP sin necesidad de acceso a internet, provee una configuracion totalmente funcional</p>
+
 * MySQL
+<p align="justify">MySQL es un sistema gestor de base de datos relacional de codigo abierto bajo licencia general o comercial hecha por Oracle, esta basado en un lenguaje de consulta estructurado</p>
+
 * JavaScript
+<p align="justify">JavaScript es un lenguaje de programacion, provee una interactividad y dinamismo a las paginas web</p>
+
 * Apache
+<p align="justify">Apache es un servidor web http de codigo abierto, su estructura es basa en modulos, presenta caracteristicas configurables asi como base de datos de aunteticacion y negociado de contenido</p>
+
 * Strapi
-* Mantine
+<p align="justify">Strapi es un sistema gestor de contenidos de proxima generacion de codigo abierto realizado en JavaScript que permite a usuarios gestionar informacion de manera sencilla asi como crear, administrar y presentar experiencias de contenido en dispositivos</p>
+
+* Mantine 
+<p align="justify">Mantine es un marco de componentes React con un sin fin de funciones para crear aplicaciones completamente funcionale y accesibles de manera sencilla y rapida</p
