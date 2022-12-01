@@ -31,7 +31,7 @@ const AppShel = ({ children, tituloPagina }) => {
                 <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaUsers></FaUsers>}><Link href='/personal'>Personal</Link></Button>
                 <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<FaDesktop></FaDesktop>}><Link href='/equipo'>Maquinas</Link></Button>
                             <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<VscSymbolProperty></VscSymbolProperty>}><Link href='/mantenimiento'>Mantenimiento</Link></Button>
-                <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<RiUserSettingsLine></RiUserSettingsLine>}><Link href='/af13'>AF13</Link></Button>           
+                <Button sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<RiUserSettingsLine></RiUserSettingsLine>}><Link href='/reporte'>Reporte</Link></Button>           
                 <Group style={{ 
                 marginTop: 260}}>
                 <Button fullWidth sx={(theme) => ({ backgroundColor: '#758E75', '&:hover': {backgroundColor: theme.fn.darken('#A1C298', 0.05),}, })} size="md" compact leftIcon={<GoSignOut></GoSignOut>}><Link href='/'>Salir</Link></Button>

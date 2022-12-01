@@ -44,12 +44,12 @@ useEffect(() => {
     setUsuarios(list.data);
   }
   const handleChange = e => {
-    setBuscar(e.target.value);
+    setNoInventario(e.target.value);
     filtrar(e.target.value);
   }
   const filtrar = (terminoBusqueda) => {
     var resultadosBusqueda = dataw.filter((elemento) => {
-      if (elemento.attributes.noInventario.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+      if (elemento.attributes.centroCoste.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
       ) {
         return elemento;
       }
@@ -131,7 +131,17 @@ function validacion() {
   var task_noInv = dataw.map((d)=>{
      return(d.attributes.noInventario
       ) 
-  })
+  });
+  var row = dataw.map((d)=>{
+    return(d.attributes.centroCoste
+     ) 
+ });
+ var serie = dataw.map((d)=>{
+  return(d.attributes.noSerie
+   ) 
+});
+
+
   
  
   return (
@@ -141,58 +151,54 @@ function validacion() {
         }}>
         <Grid.Col span={4}>
 
+
         <Select
             label="No.Inventario"
             withAsterisk
             searchable clearable
             data={task_noInv}
             value={noInventario} onChange={setNoInventario}
+            
           />
-         {
-         /* <TextInput
-              label="No. Inventario:"
-              withAsterisk
-              value={noInventario} onChange={(event) => setNoInventario(event.currentTarget.value)}
-            /> */}
-            <TextInput
-   
-            label="No. Serie:"
+
+            <Select
+            label="No Serie"
             withAsterisk
-            value={noSerie} onChange={(event) => setNoSerie(event.currentTarget.value)}
+            searchable clearable
+            data={serie}
+            value={noSerie} onChange={setNoSerie}
           />
             
            <Select
             label="Proceso"
             withAsterisk
-            data={["proceso","terminado"]}
+            searchable clearable
+            data={["Pendiente","Terminado"]}
             value={proceso} onChange={setProceso}
           />
           </Grid.Col>
         <Grid.Col span={4}>
-            <TextInput
-            label="Centro Coste:"
-   
-            withAsterisk
-            value={centroCoste} onChange={(event) => setCentroCoste(event.currentTarget.value)}
-            />
-            <TextInput
-   
+          
+             <Select
+            label="centro de coste"
+            data={row}
+            searchable clearable
+            value={centroCoste} onChange={setCentroCoste}  
+          />
+            <Select
             label="RPE"
             withAsterisk
-            value={rpe} onChange={(event) => setRpe(event.currentTarget.value)}
-            />
-
-            {/* <TextInput
-            label="Fecha:"
-            // disabled
-            withAsterisk
-            /> */}
+            searchable clearable
+            data={["9B802","9JG1A","9B7YU","9M6PK"]}
+            value={rpe} onChange={setRpe}
+          />
+        
             <DatePicker
             placeholder="Seleccione una fecha"
             label="Fecha"
             inputFormat="DD/MM/YYYY"
             value={fecha}
-                
+            onChange={setFecha}
           />
    </Grid.Col>
 
@@ -225,7 +231,7 @@ function validacion() {
             <FcPlus />
           </ActionIcon>)
         }
-        {/* <Button onClick={createPost}>agregar</Button> */}
+       
       </Grid.Col>
       </Grid>
   

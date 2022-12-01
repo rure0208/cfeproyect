@@ -1,15 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState,useRef } from 'react';
 import AppShel from '../components/appshel';
 import { Card, Container, Space,Text, Divider,Group,ActionIcon } from '@mantine/core';
 import Layout from '../components/Layout'
+import { useDownloadExcel } from 'react-export-table-to-excel';
 import { BsPencilSquare} from 'react-icons/bs'
 import TablaMantenimiento from '../components/TablaMantenimiento';
 
+import { VscSettingsGear,VscFilePdf,VscFile } from 'react-icons/vsc'
 import AgregarMantenimiento from '../components/AgregarMantenimiento';
 import { FaTools } from 'react-icons/fa'
 const Mantenimiento = () => {
   const [reload, setReload] = useState(false);
   const [update,setUpdate] = useState({});
+
   function cargarData(){
     setReload(!reload);  
   }
@@ -24,7 +27,7 @@ const Mantenimiento = () => {
   return (
     <Layout tituloPestaña='Mantenimiento'>
       <AppShel tituloPagina='Mantenimiento'>
-      <Container size={700} px={0} >
+      <Container size={1200} px={0} >
       <Card style={{ 
                 background: '#758E75',
                 // height: 700,
@@ -52,7 +55,9 @@ const Mantenimiento = () => {
                     <BsPencilSquare/>
                 </ActionIcon> */}
                 </Group>
+              
               </Card>
+           
           </Container>
         
       </AppShel>
