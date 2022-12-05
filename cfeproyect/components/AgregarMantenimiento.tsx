@@ -10,19 +10,18 @@ import Notification from './NotificationToast';
 
 
 const AgregarMantenimiento = (props) => {
-  const [dataw, setDataw] = useState([]);
   const [noInventario, setNoInventario] = useState('');
   const [centroCoste, setCentroCoste] = useState('');
   const [proceso, setProceso] = useState('');
   const [noSerie, setNoSerie] = useState('');
   const [rpe, setRpe] = useState('');
   const [fecha, setFecha] = useState(new Date());
-  const [usuarios, setUsuarios] = useState([]);
   const [id, setId] = useState();
   const [editando, setEditando] = useState(false);
-  const [buscar, setBuscar] = useState("");
 
 
+  const [arrayUsuarios, setarrayUsuarios] = useState([]);
+  const [arrayData, setarrayData] = useState([]);
 
 useEffect(() => {
   init();
@@ -39,22 +38,23 @@ useEffect(() => {
 }, [props.actualizando])
 
   async function init() {
-    const list = await api.listaDeMaquinas();
-    setDataw(list.data);
-    setUsuarios(list.data);
+    const list = await api.listaDeMaquinas(1);
+    const list2 = await api.listaDeMaquinas(2);
+    setarrayUsuarios(list.data.concat(list2.data));
+    setarrayData(list.data.concat(list2.data));
   }
   const handleChange = e => {
     setNoInventario(e.target.value);
     filtrar(e.target.value);
   }
   const filtrar = (terminoBusqueda) => {
-    var resultadosBusqueda = dataw.filter((elemento) => {
+    var resultadosBusqueda = arrayData.filter((elemento) => {
       if (elemento.attributes.centroCoste.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
       ) {
         return elemento;
       }
     });
-    setUsuarios(resultadosBusqueda);
+    setarrayUsuarios(resultadosBusqueda);
   }
 
 
@@ -128,15 +128,15 @@ function validacion() {
   return noInventario != '' && centroCoste != '' && noSerie != '' && rpe != '' ;
 }
 
-  var task_noInv = dataw.map((d)=>{
+  var task_noInv = arrayData.map((d)=>{
      return(d.attributes.noInventario
       ) 
   });
-  var row = dataw.map((d)=>{
+  var row = arrayData.map((d)=>{
     return(d.attributes.centroCoste
      ) 
  });
- var serie = dataw.map((d)=>{
+ var serie = arrayData.map((d)=>{
   return(d.attributes.noSerie
    ) 
 });

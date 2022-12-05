@@ -23,9 +23,9 @@ useEffect(() => {
 
   async function init() {
     const list = await api.listaDeMantenimiento();
-    const list2 = await api.listaDeMaquinas();
     setUsuarios(list.data);
     setData(list.data);
+
   }
   const handleChange = e => {
     setBuscar(e.target.value);

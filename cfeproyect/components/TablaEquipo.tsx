@@ -11,6 +11,10 @@ import { BsPencilSquare } from 'react-icons/bs'
 const TablaEquipo = (props) => {
   const [data, setData] = useState([]);
   const [usuarios, setUsuarios] = useState([]);
+  const [data1, setData1] = useState([]);
+  const [usuarios1, setUsuarios1] = useState([]);
+  const [arrayUsuarios, setarrayUsuarios] = useState([]);
+  const [arrayData, setarrayData] = useState([]);
   const [buscar, setBuscar] = useState("");
 
   useEffect(() => {
@@ -24,9 +28,11 @@ useEffect(() => {
 
   async function init() {
 
-    const list = await api.listaDeMaquinas();
-    setData(list.data);
-    setUsuarios(list.data);
+    const list = await api.listaDeMaquinas(1);
+    const list2 = await api.listaDeMaquinas(2);
+    setarrayUsuarios(list.data.concat(list2.data));
+    setarrayData(list.data.concat(list2.data));
+
  
   }
   const handleChange = e => {
@@ -35,13 +41,13 @@ useEffect(() => {
 }
 
   const filtrar = (terminoBusqueda) => {
-    var resultado = data.filter((elemento) => {
+    var resultado = arrayData.filter((elemento) => {
       if (elemento.attributes.noInventario.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
         || elemento.attributes.rpe.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())) {
         return elemento;
       }
     });
-    setUsuarios(resultado);
+    setarrayUsuarios(resultado);
   }
 
   async function deletePost(id: String) {
@@ -60,8 +66,10 @@ useEffect(() => {
     props.actualizar(post);
 }
 
-  const rows = usuarios && usuarios.map((d) => (
+  const rows = arrayUsuarios && arrayUsuarios.map((d) => (
+    
     <tr key={d.id}>
+          
       <td>{d.attributes.noInventario}</td>
       <td>{d.attributes.modelo}</td>
       <td>{d.attributes.centroCoste}</td>
@@ -78,7 +86,7 @@ useEffect(() => {
                 </Group>
       </td>
     </tr>
-  ));
+  )) ;
 
   return (
     <ScrollArea style={{ height: 400 }} type="always" scrollbarSize={18}>
