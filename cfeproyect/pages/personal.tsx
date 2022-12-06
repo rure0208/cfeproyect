@@ -42,7 +42,7 @@ const Personal = () => {
           <Container size={700} px={0} >
             <Card style={{ 
                 background: '#758E75',
-                height: 510,
+                height: 610,
                 width: 700,
                 color: 'white',
                 marginTop: 20
@@ -51,6 +51,8 @@ const Personal = () => {
             <Divider color={"black"} size={2}/>
             <AgregarPersonal recargar = {cargarData} actualizando = {update} limpiar = {clean} />
   
+            <Space h="lg" />
+            <Space h="lg" />
             <Space h="lg" />
             <Card.Section style={{ 
                 background: '#D9D9D9',

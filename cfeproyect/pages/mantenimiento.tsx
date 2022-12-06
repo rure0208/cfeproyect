@@ -27,13 +27,13 @@ const Mantenimiento = () => {
   return (
     <Layout tituloPestaña='Mantenimiento'>
       <AppShel tituloPagina='Mantenimiento'>
-      <Container size={1200} px={0} >
-      <Card style={{ 
+      <Container size={700} px={0} >
+            <Card style={{ 
                 background: '#758E75',
-                // height: 700,
+                height: 610,
                 width: 700,
                 color: 'white',
-                marginTop: 20 
+                marginTop: 20
             }}>
       <Text size={19}><FaTools/>   Mantenimiento de Computo </Text>
       <Divider color={"black"} size={2}/>

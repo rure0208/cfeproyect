@@ -28,7 +28,7 @@ const Equipo = () => {
       <Container size={700} px={0} >
             <Card style={{ 
                 background: '#758E75',
-                // height: 700,
+                 height: 600,
                 width: 700,
                 color: 'white',
                 marginTop: 20 

@@ -81,7 +81,7 @@ const TablaPersonal = (props) => {
     ));
 
     return (
-        <ScrollArea style={{ height: 250 }} type="always" scrollbarSize={18}>
+        <ScrollArea style={{ height: 300 }} type="always" scrollbarSize={18}>
             <Group style={{ 
                     height: 40}}>
                 <TextInput
@@ -96,12 +96,6 @@ const TablaPersonal = (props) => {
                     mb="sm"
                     icon={<BiSearch></BiSearch>}
                 />
-                <ActionIcon variant="light" size={23} color="dark" style={{ 
-                    marginLeft: 350,
-                    marginBottom: 5,
-                    width: 40}}>
-                    <HiOutlineSearchCircle />
-                </ActionIcon>
             </Group>
             <Divider color={"black"} size={1}/>
             <Table horizontalSpacing="xl" verticalSpacing="md" fontSize="xs">

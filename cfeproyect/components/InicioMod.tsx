@@ -19,7 +19,6 @@ useEffect(() => {
 }, [props.reload])
 async function init() {
   const list = await api.listaDeMantenimiento();
-  const list2 = await api.listaDeMaquinas();
   setUsuarios(list.data);
   setData(list.data);
 }
@@ -29,7 +28,8 @@ const handleChange = e => {
 }
 const filtrar = (terminoBusqueda) => {
   var resultadosBusqueda = data.filter((elemento) => {
-    if (elemento.attributes.noInventario.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+    if (elemento.attributes.proceso.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
+    ||elemento.attributes.fecha.toString().toLowerCase().includes(terminoBusqueda.toLowerCase())
     ) {
       return elemento;
     }

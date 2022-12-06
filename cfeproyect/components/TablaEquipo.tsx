@@ -89,7 +89,7 @@ useEffect(() => {
   )) ;
 
   return (
-    <ScrollArea style={{ height: 400 }} type="always" scrollbarSize={18}>
+    <ScrollArea style={{ height: 325 }} type="always" scrollbarSize={18}>
       <Group style={{ 
                     height: 40}}>
         <TextInput
@@ -104,13 +104,6 @@ useEffect(() => {
           mb="sm"
           icon={<BiSearch></BiSearch>}
         />
-
-        <ActionIcon variant="light" size={23} color="dark" style={{ 
-                    marginLeft: 350,
-                    marginBottom: 5,
-                    width: 40}}>
-          <HiOutlineSearchCircle />
-        </ActionIcon>
       </Group>
       <Divider color={"black"} size={1}/>
       <Table>
